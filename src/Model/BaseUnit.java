@@ -10,7 +10,7 @@ public abstract class BaseUnit {
     int cost;
 
     public void attack() {
-        
+
     }
 
 
