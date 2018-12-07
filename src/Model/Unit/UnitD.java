@@ -1,6 +1,6 @@
-package Model;
+package Model.Unit;
 
-public class UnitB extends BaseUnit{
+public class UnitD extends BaseUnit{
 
     @Override
     public void attack() {

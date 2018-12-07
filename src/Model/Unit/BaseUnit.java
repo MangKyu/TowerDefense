@@ -1,4 +1,4 @@
-package Model;
+package Model.Unit;
 
 public abstract class BaseUnit {
     String unitId;
