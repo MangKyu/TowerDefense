@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Model.Player.UserInfo">
+    <!--
+    <resultMap id="userInfo" type="UserInfo">
+        <result property="id" column="id"/>
+        <result property="pw" column="pw"/>
+        <result property="money" column="money"/>
+        <result property="score" column="score"/>
+    </resultMap>
+    -->
+
+    <select id="selectAllUser" resultType="userInfo">
+        SELECT * FROM USER_INFO;
+    </select>
+
+    <select id="selectUserById" parameterType="userInfo" resultType="userInfo">
+        SELECT * FROM USER_INFO WHERE id = #{id}
+    </select>
+
+    <insert id="insertUser" parameterType="userInfo">
+        INSERT USER_INFO (id, pw, money, score) VALUES (#{id}, #{pw}, #{money}, #{score});
+    </insert>
+
+    <update id="updateUser" parameterType="userInfo">
+        UPDATE USER_INFO (id, pw, money, score) SET (#{id}, #{pw}, #{money}, #{score});
+    </update>
+
+</mapper>
