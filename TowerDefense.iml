@@ -8,9 +8,9 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library" exported="">
-      <library>
+      <library name="mysql-connector-java-8.0.13">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/Resources/mysql-connector-java-8.0.13.jar!/" />
+          <root url="jar://$MODULE_DIR$/Resources/lib/mysql-connector-java-8.0.13.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

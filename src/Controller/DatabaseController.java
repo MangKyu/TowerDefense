@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class DatabaseController {
     private static DatabaseController instance;
-    private ArrayList<Database> databaseList;
+    private ArrayList<UserDatabase> databaseList;
     private final int poolSize = 5;
     private int count;
 
@@ -12,7 +12,7 @@ public class DatabaseController {
         databaseList = new ArrayList<>();
         count = 0;
         for(int i = 0 ; i < poolSize; i++){
-            databaseList.add(new Database());
+            databaseList.add(new UserDatabase());
         }
         count = poolSize;
     }
@@ -24,8 +24,8 @@ public class DatabaseController {
         return instance;
     }
 
-    public Database acquireDatabase(){
-        Database database = null;
+    public UserDatabase acquireDatabase(){
+        UserDatabase database = null;
         if(databaseList.size() > 0){
             database = databaseList.remove(count-1);
             count--;
@@ -33,7 +33,7 @@ public class DatabaseController {
         return database;
     }
 
-    public void releaseDatabase(Database database){
+    public void releaseDatabase(UserDatabase database){
         if(count < poolSize){
             databaseList.add(database);
             count++;
