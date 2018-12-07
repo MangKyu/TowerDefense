@@ -47,9 +47,10 @@ public class UserDAO {
     }
 
 
-    public void insertUser(UserInfo userInfo){
-        session.insert(namespace+"insertUser", userInfo);
+    public int insertUser(UserInfo userInfo){
+        int result = session.insert(namespace+"insertUser", userInfo);
         session.commit();
+        return result;
     }
 
     public void updateUser(UserInfo userInfo){

@@ -4,15 +4,22 @@ import java.util.ArrayList;
 
 public class DatabaseController {
     private static DatabaseController instance;
-    private ArrayList<UserDatabase> databaseList;
+    //private ArrayList<UserDatabase> databaseList;
+    private ArrayList<UserDAO> userDAOList;
     private final int poolSize = 5;
     private int count;
 
     public DatabaseController(){
-        databaseList = new ArrayList<>();
-        count = 0;
+        //databaseList = new ArrayList<>();
+        /*
         for(int i = 0 ; i < poolSize; i++){
             databaseList.add(new UserDatabase());
+        }
+        */
+        count = 0;
+        userDAOList = new ArrayList<>();
+        for(int i = 0 ; i < poolSize; i++){
+            userDAOList.add(new UserDAO());
         }
         count = poolSize;
     }
@@ -24,6 +31,24 @@ public class DatabaseController {
         return instance;
     }
 
+    public UserDAO acquireUserDAO(){
+        UserDAO userDAO = null;
+        if(userDAOList.size() > 0){
+            userDAO = userDAOList.remove(count-1);
+            count--;
+        }
+        return userDAO;
+    }
+
+
+    public void releaseDatabase(UserDAO userDAO){
+        if(count < poolSize){
+            userDAOList.add(userDAO);
+            count++;
+        }
+    }
+
+    /*
     public UserDatabase acquireDatabase(){
         UserDatabase database = null;
         if(databaseList.size() > 0){
@@ -39,5 +64,5 @@ public class DatabaseController {
             count++;
         }
     }
-
+    */
 }
