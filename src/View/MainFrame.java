@@ -14,11 +14,10 @@ public class MainFrame extends JFrame {
     private CardLayout cards;
     private MainController mainController;
     private PlayerObserver playerObserver;
-
     public MainFrame(MainController mainController) {
         this.mainController = mainController;
         initComponents();
-
+        this.setSize(1000,1000);
         //playerObserver = 로그인 이후 받아온 데이터
         //this.addKeyListener(new MyKeyListener());
     }
@@ -26,12 +25,6 @@ public class MainFrame extends JFrame {
     private void initComponents(){
         LoginPanel loginPanel = new LoginPanel();
         this.add(loginPanel);
-
-
-
-
-
-
         this.setVisible(true);
         this.setResizable(false);
     }

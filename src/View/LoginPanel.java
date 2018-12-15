@@ -2,11 +2,24 @@ package View;
 
 import Model.Player.PlayerInfo;
 
+import javax.swing.*;
+
 public class LoginPanel extends BasePanel {
 
+
+    private JButton signinButton;
+    private JButton signupButton;
+    private JTextField idField;
+    private JTextField pwField;
+
     public LoginPanel(){
-        super();
+          super();
+          this.add(idField);
+          this.add(pwField);
+          this.add(signinButton);
+          this.add(signupButton);
     }
+
 
     @Override
     protected void initComponents(){
@@ -17,4 +30,5 @@ public class LoginPanel extends BasePanel {
     public void update(PlayerInfo playerInfo) {
         System.out.println("Player Info is updated");
     }
+
 }
