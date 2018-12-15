@@ -15,8 +15,8 @@ public class MainController {
     public MainController(){
         this.date = new Date();
         this.databaseController= new DatabaseController();
-        this.unitController = new UnitController();
         this.playerController = new PlayerController();
+        this.unitController = new UnitController();
     }
 
     public String getCurrentDate(){

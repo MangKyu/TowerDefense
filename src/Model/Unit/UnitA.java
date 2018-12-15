@@ -5,21 +5,37 @@ public class UnitA extends BaseUnit {
     final static int basePower = 10;
     final static int baseLevel = 1;
     final static int baseSpeed = 5;
+    final static int baseCost = 100;
 
 
-
-    public UnitA(){
+    public UnitA(int level) {
         super();
-        this.unitId = "A";
-        initUnit(hp, power, level, speed, true);
+        this.unitId = "UNIT_A";
+        InitUnit(level, teamInfo);
+        run();
     }
+
     @Override
     public void attack() {
         //super.attack();
         System.out.println("UnitA Attack");
     }
 
-    public void run(){
+    public void run() {
+    }
+
+    public void InitUnit(int level, boolean teamInfo) {
+        int tempHp;
+        int tempPower;
+
+        tempHp = baseHp + level * 10;
+        tempPower = basePower + level * 5;
+
+        this.power = tempPower;
+        this.hp = tempHp;
+        this.teamInfo = teamInfo;
+        this.cost = baseCost;
+
     }
 
 
