@@ -1,13 +1,7 @@
 package Controller;
 
-import Controller.Database.UserDAO;
-import Controller.Database.UserDatabase;
-import Model.Player.PlayerInfo;
-import Model.Player.UserInfo;
-import Model.Unit.BaseUnit;
-import View.LoginFrame;
-
-import java.util.List;
+import View.LoginPanel;
+import View.MainFrame;
 
 public class Main {
 
@@ -19,13 +13,17 @@ public class Main {
         System.out.println(userDAO.selectAllUser().toString());
 
         MainController mainController = new MainController();
-        LoginFrame a =new LoginFrame(mainController.getPlayerController());
+        LoginPanel a =new LoginPanel(mainController.getPlayerController());
         mainController.getPlayerController().setPlayerInfo(new PlayerInfo());
 
         MainController mainController = new MainController();
         BaseUnit b = mainController.getUnitController().produceUnit("UNIT_D");
         b.attack();
         */
+
+
+        MainController mainController = new MainController();
+        MainFrame mainFrame = new MainFrame(mainController);
     }
 
 }
