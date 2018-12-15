@@ -2,72 +2,65 @@ package View;
 
 import Controller.MainController;
 import Controller.Observer.PlayerObserver;
+import Model.Player.UserInfo;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.ActionListener;
 
 
 public class MainFrame extends JFrame {
 
-    private CardLayout cards;
+    private JPanel cardsPanel;
+    private Container container;
+
     private MainController mainController;
+
     private PlayerObserver playerObserver;
+
     public MainFrame(MainController mainController) {
         this.mainController = mainController;
-        this.setSize(1000,1000);
         initComponents();
-        //playerObserver = 로그인 이후 받아온 데이터
-        //this.addKeyListener(new MyKeyListener());
     }
 
-    private void initComponents(){
-        this.setVisible(true);
-        this.setResizable(false);
-        this.setLayout(new GridLayout());
-        validate();
+    private void initComponents() {
+        container = getContentPane();
+        cardsPanel = new JPanel(new CardLayout(0, 0));
 
         LoginPanel loginPanel = new LoginPanel();
-        this.add(loginPanel);
-    }
+        cardsPanel.add(loginPanel, "LoginPanel");
 
-    /*
-    public void destroy(){
-        int result=JOptionPane.showConfirmDialog(this, "醫낅즺�븯�떆寃좎뒿�땲源�?","醫낅즺",JOptionPane.OK_CANCEL_OPTION,
-                JOptionPane.QUESTION_MESSAGE);
-        if(result==JOptionPane.OK_OPTION){
-            System.exit(0);
-        }
-    }
+        ActionListener actionListener = e -> {
+            Object source = e.getSource();
+            if (source.equals(loginPanel.signInButton)) {
+                String id = loginPanel.idField.getText();
+                String pw = String.valueOf(loginPanel.pwField.getPassword());
+                UserInfo userInfo = new UserInfo(id, pw);
 
-    class MyKeyListener implements KeyListener {
+                userInfo = loginPanel.requestSignIn(userInfo);
 
-        public void keyPressed(KeyEvent e) {
-            switch (e.getKeyCode()) {
+                if (userInfo == null) {
+                    ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "다른 패널 이름");
+
+                } else {
+
+                }
 
 
-                case KeyEvent.VK_ENTER:
+            } else if (source.equals(loginPanel.signUpButton)) {
 
-                    break;
             }
 
-        }
+        };
 
-        @Override
-        public void keyReleased(KeyEvent arg0) {
-            // TODO Auto-generated method stub
+        loginPanel.addActionListener(actionListener);
 
-        }
 
-        @Override
-        public void keyTyped(KeyEvent arg0) {
-            // TODO Auto-generated method stub
-
-        }
+        container.add(cardsPanel);
+        this.setBounds(30, 30, 1000, 1000);
+        this.setResizable(false);
+        this.setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    */
-
-
 
 }

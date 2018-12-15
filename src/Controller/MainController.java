@@ -8,6 +8,7 @@ import java.util.Date;
 
 public class MainController {
     private Date date;
+    private static MainController instance;
     private DatabaseController databaseController;
     private UnitController unitController;
     private PlayerController playerController;
@@ -39,4 +40,12 @@ public class MainController {
     public PlayerController getPlayerController() {
         return playerController;
     }
+
+    public static MainController getInstance(){
+        if(instance == null){
+            instance = new MainController();
+        }
+        return instance;
+    }
+
 }
