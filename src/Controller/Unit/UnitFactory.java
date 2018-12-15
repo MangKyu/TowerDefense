@@ -6,17 +6,7 @@ public class UnitFactory {
     //private static UnitFactory instance;
 
     public UnitFactory(){
-
     }
-
-    /*
-    private static UnitFactory getInstance(){
-        if(instance == null){
-            instance = new UnitFactory();
-        }
-        return instance;
-    }
-    */
 
     public BaseUnit produceUnit(String unitId) {
         BaseUnit baseUnit;
