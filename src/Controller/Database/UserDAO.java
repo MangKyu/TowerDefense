@@ -35,6 +35,10 @@ public class UserDAO {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
         session = sqlSessionFactory.openSession();
     }
+    public UserInfo signInUser(UserInfo userInfo){
+        userInfo = session.selectOne(namespace+"signInUser", userInfo);
+        return userInfo;
+    }
 
     public UserInfo selectUserById(UserInfo userInfo){
         userInfo = session.selectOne(namespace+"selectUserById", userInfo);

@@ -52,11 +52,11 @@ public class PlayerController implements PlayerObserver {
         this.observers = observers;
     }
 
-    public void signIn(PlayerInfo playerInfo){
+    public UserInfo signIn(UserInfo userInfo){
         UserDAO userDAO = DatabaseController.getInstance().acquireUserDAO();
-        UserInfo userInfo = userDAO.selectUserById(playerInfo.getUserInfo());
-        playerInfo.setUserInfo(userInfo);
+        userInfo = userDAO.signInUser(userInfo);
         DatabaseController.getInstance().releaseDatabase(userDAO);
+        return userInfo;
     }
 
     public boolean signUp(PlayerInfo playerInfo){

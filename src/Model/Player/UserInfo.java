@@ -7,8 +7,18 @@ public class UserInfo {
     private String pw;
     private int money;
     private int score;
-    private Map levelInfo;
 
+    public UserInfo(String id, String pw) {
+        this.id = id;
+        this.pw = pw;
+    }
+
+    public UserInfo(String id, String pw, int money, int score) {
+        this.id = id;
+        this.pw = pw;
+        this.money = money;
+        this.score = score;
+    }
     public String getId() {
         return id;
     }
@@ -41,11 +51,4 @@ public class UserInfo {
         this.score = score;
     }
 
-    public Map getLeveInfo(){
-        return this.levelInfo;
-    }
-
-    public void setLevelInfo(Map levelInfo){
-        this.levelInfo = levelInfo;
-    }
 }

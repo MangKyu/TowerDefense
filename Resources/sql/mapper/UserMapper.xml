@@ -13,6 +13,11 @@
     </resultMap>
     -->
 
+    <select id="signInUser" parameterType="userInfo" resultType="userInfo">
+        SELECT * FROM USER_INFO WHERE id = #{id} AND pw = #{pw}
+    </select>
+
+
     <select id="selectAllUser" resultType="userInfo">
         SELECT * FROM USER_INFO;
     </select>
