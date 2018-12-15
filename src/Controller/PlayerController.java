@@ -15,6 +15,7 @@ public class PlayerController implements PlayerObserver {
 
     public PlayerController(){
         observers = new ArrayList<>();
+        playerInfo = new PlayerInfo();
     }
 
     @Override
@@ -60,7 +61,7 @@ public class PlayerController implements PlayerObserver {
 
     public boolean signUp(PlayerInfo playerInfo){
         UserDAO userDAO = DatabaseController.getInstance().acquireUserDAO();
-        int result = userDAO.insertUser(playerInfo.getUserInfo());
+        int result = userDAO.insertUserInfo(playerInfo.getUserInfo());
         DatabaseController.getInstance().releaseDatabase(userDAO);
         return result > 0;
     }
