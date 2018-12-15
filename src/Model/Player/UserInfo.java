@@ -1,10 +1,13 @@
 package Model.Player;
 
+import java.util.Map;
+
 public class UserInfo {
     private String id;
     private String pw;
     private int money;
     private int score;
+    private Map levelInfo;
 
     public String getId() {
         return id;
@@ -36,5 +39,13 @@ public class UserInfo {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public Map getLeveInfo(){
+        return this.levelInfo;
+    }
+
+    public void setLevelInfo(Map levelInfo){
+        this.levelInfo = levelInfo;
     }
 }
