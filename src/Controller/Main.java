@@ -5,13 +5,16 @@ import Controller.Database.UserDatabase;
 import Model.Player.PlayerInfo;
 import Model.Player.UserInfo;
 import Model.Unit.BaseUnit;
-import View.LoginFrame;
+import View.LoginPanel;
+import View.MainFrame;
 
 import java.util.List;
 
 public class Main {
 
     public static void main(String args[]){
+        MainController mainController = new MainController();
+        MainFrame a =new MainFrame(mainController);
         /*
         UserDatabase db = new UserDatabase();
         UserDAO userDAO = new UserDAO();
