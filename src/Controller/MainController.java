@@ -1,6 +1,7 @@
 package Controller;
 
 import Controller.Database.DatabaseController;
+import Controller.Unit.PlayController;
 import Controller.Unit.UnitController;
 
 import java.text.SimpleDateFormat;
@@ -11,14 +12,14 @@ public class MainController {
     private DatabaseController databaseController;
     private UnitController unitController;
     private PlayerController playerController;
-    private PlayerController enemyController;
+    private PlayController playController;
 
 
     public MainController(){
         this.date = new Date();
+        this.playController = new PlayController();
         this.databaseController= new DatabaseController();
         this.playerController = new PlayerController();
-        this.enemyController = new PlayerController();
         this.unitController = new UnitController();
     }
 

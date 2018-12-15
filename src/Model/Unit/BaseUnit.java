@@ -11,7 +11,7 @@ public abstract class BaseUnit implements Runnable {
     boolean isAttack = false;
     int cost;
     int positionX = 150;
-    int attackRange = 15;
+    public final static int attackRange = 15;
 
 
     public BaseUnit() {
@@ -22,6 +22,14 @@ public abstract class BaseUnit implements Runnable {
 
     public void move() {
         this.positionX += this.speed;
+    }
+
+    public void setIsAttack(boolean isAttack){
+        this.isAttack = isAttack;
+    }
+
+    public boolean getIsAttack(){
+        return this.isAttack;
     }
 
     public void setX(int x){
