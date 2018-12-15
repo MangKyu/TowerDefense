@@ -47,22 +47,4 @@ public class DatabaseController {
             count++;
         }
     }
-
-    /*
-    public UserDatabase acquireDatabase(){
-        UserDatabase database = null;
-        if(databaseList.size() > 0){
-            database = databaseList.remove(count-1);
-            count--;
-        }
-        return database;
-    }
-
-    public void releaseDatabase(UserDatabase database){
-        if(count < poolSize){
-            databaseList.add(database);
-            count++;
-        }
-    }
-    */
 }

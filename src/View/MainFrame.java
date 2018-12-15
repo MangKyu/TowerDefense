@@ -41,16 +41,10 @@ public class MainFrame extends JFrame {
 
                 if (userInfo == null) {
                     ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "다른 패널 이름");
-
                 } else {
-
                 }
-
-
             } else if (source.equals(loginPanel.signUpButton)) {
-
             }
-
         };
 
         loginPanel.addActionListener(actionListener);

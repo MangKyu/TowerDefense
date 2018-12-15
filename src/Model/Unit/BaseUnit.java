@@ -1,5 +1,8 @@
 package Model.Unit;
 
+import Controller.PlayerController;
+import Controller.Unit.PlayController;
+
 public abstract class BaseUnit implements Runnable {
     String unitId;
     int hp;
@@ -18,6 +21,7 @@ public abstract class BaseUnit implements Runnable {
     }
 
     public void attack() {
+        PlayController.InflictDamage(this,this.power);
     }
 
     public void move() {
