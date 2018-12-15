@@ -44,9 +44,7 @@ public class LoginPanel extends BasePanel {
         signUpButton.setBounds(400, 600, 200, 60);
         signUpButton.setVisible(true);
         this.add(signUpButton);
-
-        this.show();
-    }
+        }
 
 
     @Override
