@@ -11,11 +11,14 @@ public class MainController {
     private DatabaseController databaseController;
     private UnitController unitController;
     private PlayerController playerController;
+    private PlayerController enemyController;
+
 
     public MainController(){
         this.date = new Date();
         this.databaseController= new DatabaseController();
         this.playerController = new PlayerController();
+        this.enemyController = new PlayerController();
         this.unitController = new UnitController();
     }
 

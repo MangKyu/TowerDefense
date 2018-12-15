@@ -21,8 +21,6 @@ public class UnitA extends BaseUnit {
         System.out.println("UnitA Attack");
     }
 
-    public void run() {
-    }
 
     public void InitUnit(int level, boolean teamInfo) {
         int tempHp;
@@ -37,6 +35,5 @@ public class UnitA extends BaseUnit {
         this.cost = baseCost;
 
     }
-
 
 }

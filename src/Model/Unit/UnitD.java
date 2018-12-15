@@ -21,10 +21,6 @@ public class UnitD extends BaseUnit {
         System.out.println("UnitA Attack");
     }
 
-    public void run() {
-
-    }
-
     public void InitUnit(int level, boolean teamInfo) {
         int tempHp;
         int tempPower;

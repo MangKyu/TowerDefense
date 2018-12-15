@@ -7,7 +7,12 @@ public abstract class BaseUnit implements Runnable {
     int level;
     int speed;
     boolean teamInfo;
+    boolean isAlive = true;
+    boolean isAttack = false;
     int cost;
+    int positionX = 150;
+    int attackRange = 15;
+
 
     public BaseUnit() {
     }
@@ -16,8 +21,16 @@ public abstract class BaseUnit implements Runnable {
     }
 
     public void move() {
+        this.positionX += this.speed;
     }
 
+    public void setX(int x){
+        this.positionX = x;
+    }
+
+    public int getX(){
+        return this.positionX;
+    }
     public void setHp(int hp) {
         this.hp = hp;
     }
@@ -67,5 +80,26 @@ public abstract class BaseUnit implements Runnable {
     }
 
     public void InitUnit(int level,boolean teamInfo) {
+    }
+
+    public boolean AliveDetection(){
+        if(this.hp<=0){
+            this.isAlive = false;
+        }
+        return isAlive;
+    }
+
+    public void run() {
+        while (AliveDetection()) {
+            if (isAttack) {
+                attack();
+            } else {
+                move();
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                }
+            }
+        }
     }
 }
