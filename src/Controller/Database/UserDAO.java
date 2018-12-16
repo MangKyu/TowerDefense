@@ -1,5 +1,6 @@
 package Controller.Database;
 
+import Model.Player.LevelInfo;
 import Model.Player.UserInfo;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -63,4 +64,7 @@ public class UserDAO {
         return result;
     }
 
+    public LevelInfo retrieveLevelInfo(UserInfo userInfo) {
+        return session.selectOne(namespace+"retrieveLevelInfo", userInfo);
+    }
 }
