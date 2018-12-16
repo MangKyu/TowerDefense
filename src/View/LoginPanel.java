@@ -92,7 +92,7 @@ public class LoginPanel extends BasePanel {
                 if (userInfo == null) {
                     JOptionPane.showMessageDialog(null, "Wrong ID or Password");
                 } else {
-                    ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "StagePanel");
+                    ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "UnitAdminPanel");
                 }
             } else if (source.equals(signUpButton)) {
 
