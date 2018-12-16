@@ -1,10 +1,14 @@
 package View;
 
+import Controller.Main;
 import Controller.MainController;
+import Controller.Observer.PlayerObserver;
+import Controller.PlayerController;
 import Controller.Strategy.SkillStrategyA;
 import Controller.Strategy.SkillStrategyB;
 import Model.Player.PlayerInfo;
 import Model.Player.UserInfo;
+import Model.Unit.BaseUnit;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -76,13 +80,11 @@ public class IngamePanel extends BasePanel {
         skillButton.setBounds(50,800,100, 100);
         skillButton.setVisible(true);
         this.add(skillButton);
-        System.out.println("Skill");
 
         this.summon1Button = new JButton("유닛1");
         summon1Button.setBounds(300,850,75,75);
         summon1Button.setVisible(true);
         this.add(summon1Button);
-        System.out.println("summon1Button");
 
         this.summon2Button = new JButton("유닛2");
         summon2Button.setBounds(400,850,75,75);
@@ -121,14 +123,28 @@ public class IngamePanel extends BasePanel {
     protected void addAction() {
         ActionListener actionListener = e -> {
             Object source = e.getSource();
+            PlayerInfo playerInfo = MainController.getInstance().getPlayerController().getPlayerInfo();
             if (source.equals(skillButton)) {
-                boolean skillFlag = MainController.getInstance().getPlayerController().getPlayerInfo().getSkillFlag();
+                boolean skillFlag = playerInfo.getSkillFlag();
                 if(skillFlag){
                     MainController.getInstance().getPlayerController().skill(new SkillStrategyA());
                 }else{
                     MainController.getInstance().getPlayerController().skill(new SkillStrategyB());
                 }
-                MainController.getInstance().getPlayerController().getPlayerInfo().setSkillFlag(!skillFlag);
+                playerInfo.setSkillFlag(!skillFlag);
+
+            }else if(source.equals(summon1Button)){
+                BaseUnit unit = MainController.getInstance().getPlayerController().getUnitByIndex(0);
+
+            }else if(source.equals(summon2Button)){
+                BaseUnit unit = MainController.getInstance().getPlayerController().getUnitByIndex(1);
+
+            }else if(source.equals(summon3Button)){
+                BaseUnit unit = MainController.getInstance().getPlayerController().getUnitByIndex(2);
+
+            }else if(source.equals(summon4Button)){
+                BaseUnit unit = MainController.getInstance().getPlayerController().getUnitByIndex(3);
+
             }
 
         };
