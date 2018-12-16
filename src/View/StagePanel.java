@@ -1,6 +1,5 @@
 package View;
 
-import Controller.MainController;
 import Model.Player.PlayerInfo;
 
 import javax.swing.*;
@@ -17,14 +16,10 @@ public class StagePanel extends BasePanel {
     public JButton stage4Button;
     public JButton stage5Button;
     private JPanel cardsPanel;
-    private Thread playThread;
-    private MainController mainController;
 
-    public StagePanel(JPanel cardsPanel,MainController mainController){
+    public StagePanel(JPanel cardsPanel){
         super();
         this.cardsPanel = cardsPanel;
-        this.mainController = mainController;
-        playThread = new Thread(mainController.getPlayController());
         addAction();
     }
 
@@ -84,8 +79,6 @@ public class StagePanel extends BasePanel {
                 ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "UnitAdminPanel");
             }else{
                 ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "IngamePanel");
-                mainController.getPlayController().setIsPlaying(true);
-                playThread.start();
             }
         };
 
