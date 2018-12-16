@@ -52,7 +52,7 @@ public class MainFrame extends JFrame {
         loginPanel.addActionListener(loginPanelListener);
 
 
-
+        
         StagePanel stagePanel = new StagePanel();
         cardsPanel.add(stagePanel, "StagePanel");
 
