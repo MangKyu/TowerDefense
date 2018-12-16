@@ -44,6 +44,10 @@ public class MainController {
         return playerController;
     }
 
+    public PlayController getPlayController(){
+        return this.playController;
+    }
+
     public static MainController getInstance(){
         if(instance == null){
             instance = new MainController();
