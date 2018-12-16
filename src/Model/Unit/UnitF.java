@@ -8,7 +8,7 @@ public class UnitF extends BaseUnit {
     final static int baseSpeed = 5;
     final static int baseCost = 100;
 
-    public UnitF(int level,boolean teamInfo) {
+    public UnitF(int level, boolean teamInfo) {
         super();
         this.unitId = "UNIT_F";
         InitUnit(level, teamInfo);
@@ -22,6 +22,12 @@ public class UnitF extends BaseUnit {
 
         tempHp = baseHp + level * 10;
         tempPower = basePower + level * 5;
+
+        if (teamInfo == false) {
+            positionX = 150;
+        } else {
+            positionX = 800;
+        }
 
         this.power = tempPower;
         this.hp = tempHp;
