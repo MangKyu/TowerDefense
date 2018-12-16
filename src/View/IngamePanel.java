@@ -1,6 +1,8 @@
 package View;
 
 import Controller.MainController;
+import Controller.Strategy.SkillStrategyA;
+import Controller.Strategy.SkillStrategyB;
 import Model.Player.PlayerInfo;
 import Model.Player.UserInfo;
 
@@ -14,36 +16,38 @@ import java.io.File;
 public class IngamePanel extends BasePanel {
 
     public JButton Pause;
-    public JButton SkillButton;
-    public JButton Summon1;
-    public JButton Summon2;
-    public JButton Summon3;
-    public JButton Summon4;
-    public Image bgImage;
+    public JButton skillButton;
+    public JButton summon1Button;
+    public JButton summon2Button;
+    public JButton summon3Button;
+    public JButton summon4Button;
     private JPanel cardsPanel;
-    private MainController mainController;
     private Thread playThread;
+
     public IngamePanel() {
         super();
     }
 
-    public IngamePanel(JPanel cardsPanel,MainController mainController) {
+    public IngamePanel(JPanel cardsPanel) {
         super();
         this.cardsPanel = cardsPanel;
-        this.mainController = mainController;
-        playThread = new Thread(mainController.getPlayController());
-        mainController.getPlayController().setIsPlaying(true);
+        /*
+        playThread = new Thread(MainController.getInstance().getPlayController());
+        MainController.getInstance().getPlayController().setIsPlaying(true);
         playThread.start();
+        */
         addAction();
     }
 
     @Override
     public void paintComponent(Graphics g) {
-
+        Image bgImage = null;
 
         try{
             bgImage = ImageIO.read(new File("./img/bgImage.png"));
-        }catch (Exception e) {}
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
         g.drawImage(bgImage, 0, 0, 1000, 1000,null);
 
         g.setColor(Color.RED);
@@ -68,32 +72,32 @@ public class IngamePanel extends BasePanel {
         this.add(Pause);
         System.out.println("Pause");
 
-        this.SkillButton = new JButton("스킬");
-        SkillButton.setBounds(50,800,100, 100);
-        SkillButton.setVisible(true);
-        this.add(SkillButton);
+        this.skillButton = new JButton("스킬");
+        skillButton.setBounds(50,800,100, 100);
+        skillButton.setVisible(true);
+        this.add(skillButton);
         System.out.println("Skill");
 
-        this.Summon1 = new JButton("유닛1");
-        Summon1.setBounds(300,850,75,75);
-        Summon1.setVisible(true);
-        this.add(Summon1);
-        System.out.println("Summon1");
+        this.summon1Button = new JButton("유닛1");
+        summon1Button.setBounds(300,850,75,75);
+        summon1Button.setVisible(true);
+        this.add(summon1Button);
+        System.out.println("summon1Button");
 
-        this.Summon2 = new JButton("유닛2");
-        Summon2.setBounds(400,850,75,75);
-        Summon2.setVisible(true);
-        this.add(Summon2);
+        this.summon2Button = new JButton("유닛2");
+        summon2Button.setBounds(400,850,75,75);
+        summon2Button.setVisible(true);
+        this.add(summon2Button);
 
-        this.Summon3 = new JButton("유닛3");
-        Summon3.setBounds(500,850,75,75);
-        Summon3.setVisible(true);
-        this.add(Summon3);
+        this.summon3Button = new JButton("유닛3");
+        summon3Button.setBounds(500,850,75,75);
+        summon3Button.setVisible(true);
+        this.add(summon3Button);
 
-        this.Summon4 = new JButton("유닛4");
-        Summon4.setBounds(600,850,75,75);
-        Summon4.setVisible(true);
-        this.add(Summon4);
+        this.summon4Button = new JButton("유닛4");
+        summon4Button.setBounds(600,850,75,75);
+        summon4Button.setVisible(true);
+        this.add(summon4Button);
 
         this.setVisible(true);
     }
@@ -106,19 +110,25 @@ public class IngamePanel extends BasePanel {
     @Override
     public void addActionListener(ActionListener actionListener) {
         Pause.addActionListener(actionListener);
-        SkillButton.addActionListener(actionListener);
-        Summon1.addActionListener(actionListener);
-        Summon2.addActionListener(actionListener);
-        Summon3.addActionListener(actionListener);
-        Summon4.addActionListener(actionListener);
+        skillButton.addActionListener(actionListener);
+        summon1Button.addActionListener(actionListener);
+        summon2Button.addActionListener(actionListener);
+        summon3Button.addActionListener(actionListener);
+        summon4Button.addActionListener(actionListener);
     }
 
     @Override
     protected void addAction() {
         ActionListener actionListener = e -> {
             Object source = e.getSource();
-            if (source.equals(SkillButton)) {
-
+            if (source.equals(skillButton)) {
+                boolean skillFlag = MainController.getInstance().getPlayerController().getPlayerInfo().getSkillFlag();
+                if(skillFlag){
+                    MainController.getInstance().getPlayerController().skill(new SkillStrategyA());
+                }else{
+                    MainController.getInstance().getPlayerController().skill(new SkillStrategyB());
+                }
+                MainController.getInstance().getPlayerController().getPlayerInfo().setSkillFlag(!skillFlag);
             }
 
         };

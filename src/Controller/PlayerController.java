@@ -4,6 +4,8 @@ import Controller.Database.DatabaseController;
 import Controller.Database.UserDAO;
 import Controller.Observer.Observer;
 import Controller.Observer.PlayerObserver;
+import Controller.Strategy.SkillStrategy;
+import Controller.Strategy.SkillStrategyA;
 import Model.Player.PlayerInfo;
 import Model.Player.UserInfo;
 
@@ -64,6 +66,11 @@ public class PlayerController implements PlayerObserver {
         int result = userDAO.insertUserInfo(playerInfo.getUserInfo());
         DatabaseController.getInstance().releaseDatabase(userDAO);
         return result > 0;
+    }
+
+
+    public void skill(SkillStrategy skillStrategy){
+        skillStrategy.skill();
     }
 
 }

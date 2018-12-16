@@ -53,7 +53,7 @@ public class PlayerInfo {
         this.skillStrategy = skillStrategy;
     }
 
-    public boolean isSkillFlag() {
+    public boolean getSkillFlag() {
         return skillFlag;
     }
 
@@ -67,10 +67,6 @@ public class PlayerInfo {
 
     public void deleteUnit(BaseUnit unit){
         unitQueue.remove(unit);
-    }
-
-    public void skill(){
-
     }
 
 }
