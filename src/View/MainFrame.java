@@ -30,7 +30,7 @@ public class MainFrame extends JFrame {
         LoginPanel loginPanel = new LoginPanel();
         cardsPanel.add(loginPanel, "LoginPanel");
 
-        ActionListener actionListener = e -> {
+        ActionListener loginPanelListener = e -> {
             Object source = e.getSource();
             if (source.equals(loginPanel.signInButton)) {
                 String id = loginPanel.idField.getText();
@@ -40,14 +40,48 @@ public class MainFrame extends JFrame {
                 userInfo = loginPanel.requestSignIn(userInfo);
 
                 if (userInfo == null) {
-                    ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "다른 패널 이름");
+                    //알림
                 } else {
+                    ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "StagePanel");
                 }
             } else if (source.equals(loginPanel.signUpButton)) {
+
             }
         };
 
-        loginPanel.addActionListener(actionListener);
+        loginPanel.addActionListener(loginPanelListener);
+
+
+
+        StagePanel stagePanel = new StagePanel();
+        cardsPanel.add(stagePanel, "StagePanel");
+
+        ActionListener stagePanelListener = e -> {
+            Object source = e.getSource();
+            if (source.equals(stagePanel.unitAdminButton)) {
+
+            } else if (source.equals(stagePanel.stage1Button)) {
+                ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "IngamePanel");
+
+            }
+        };
+        stagePanel.addActionListener(stagePanelListener);
+
+
+        IngamePanel ingamePanel = new IngamePanel();
+        cardsPanel.add(ingamePanel, "IngamePanel");
+
+        ActionListener ingamePanelListener = e -> {
+            Object source = e.getSource();
+            if (source.equals(ingamePanel.Pause)) {
+
+            } else if (source.equals(ingamePanel.SkillButton)) {
+
+            }
+        };
+        ingamePanel.addActionListener(ingamePanelListener);
+
+
 
 
         container.add(cardsPanel);

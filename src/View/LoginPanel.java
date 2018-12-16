@@ -25,8 +25,6 @@ public class LoginPanel extends BasePanel {
     protected void initComponents() {
         this.setLayout(null);
         this.setSize(1000, 1000);
-        System.out.println("LoginPanel Created");
-
 
         this.idLabel = new JLabel("I D");
         idLabel.setBounds(300, 300, 200, 60);
