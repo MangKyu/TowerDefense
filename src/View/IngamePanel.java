@@ -21,27 +21,19 @@ public class IngamePanel extends BasePanel {
     public JButton Summon4;
     public Image bgImage;
     private JPanel cardsPanel;
-    private MainController mainController;
-    private Thread playThread;
+
     public IngamePanel() {
         super();
     }
 
-    public IngamePanel(JPanel cardsPanel,MainController mainController) {
+    public IngamePanel(JPanel cardsPanel) {
         super();
         this.cardsPanel = cardsPanel;
-        this.mainController = mainController;
-        playThread = new Thread(mainController.getPlayController());
-        mainController.getPlayController().setIsPlaying(true);
-        playThread.start();
         addAction();
     }
 
     @Override
     public void paintComponent(Graphics g) {
-
-        
-
 
         try{
             bgImage = ImageIO.read(new File("./img/bgImage.png"));
