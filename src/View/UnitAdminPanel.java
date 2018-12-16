@@ -7,6 +7,7 @@ import javax.swing.*;
 import javax.swing.border.SoftBevelBorder;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 public class UnitAdminPanel extends BasePanel {
@@ -32,6 +33,7 @@ public class UnitAdminPanel extends BasePanel {
     public JLabel pointSelectedUnit_3;
     public JLabel pointSelectedUnit_4;
 
+    private BufferedImage unitImage;
     public Image entryArrow;
     public Image bgImage;
     private JPanel cardsPanel;
@@ -67,37 +69,92 @@ public class UnitAdminPanel extends BasePanel {
         finishButton.setBounds(800,65,150,100);
         finishButton.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(finishButton);
-        /*
-        pointSelectedUnit = new JLabel(new ImageIcon(BasePanel.class.getResource("./image/selectPoint.png")));
-        pointSelectedUnit.setBounds(30, 15, 400, 150);
-        this.add(pointSelectedUnit);
-        */
+
         // label -> size : 100 100
+        try {
+            unitImage = ImageIO.read(new File("./img/Unit_Dog.JPG"));
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        unitLabel_1 = new JLabel(new ImageIcon(unitImage));
+        unitLabel_1.setBounds(35,350,94,95);
+        unitLabel_1.setVisible(true);
+        this.add(unitLabel_1);
 
         upgradeButton_1 =new JButton("업그레이드  500G");
         upgradeButton_1.setBounds(150,350,150,100);
         upgradeButton_1.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(upgradeButton_1);
 
+        try {
+            unitImage = ImageIO.read(new File("./img/Unit_Giant.JPG"));
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        unitLabel_2 = new JLabel(new ImageIcon(unitImage));
+        unitLabel_2.setBounds(35,500,94,95);
+        unitLabel_2.setVisible(true);
+        this.add(unitLabel_2);
+
         upgradeButton_2 =new JButton("업그레이드  500G");
         upgradeButton_2.setBounds(150,500,150,100);
         upgradeButton_2.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(upgradeButton_2);
+
+        try {
+            unitImage = ImageIO.read(new File("./img/Unit_Knight.JPG"));
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        unitLabel_3 = new JLabel(new ImageIcon(unitImage));
+        unitLabel_3.setBounds(355,350,94,95);
+        unitLabel_3.setVisible(true);
+        this.add(unitLabel_3);
 
         upgradeButton_3 =new JButton("업그레이드  500G");
         upgradeButton_3.setBounds(470,350,150,100);
         upgradeButton_3.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(upgradeButton_3);
 
+        try {
+            unitImage = ImageIO.read(new File("./img/Unit_Priest.JPG"));
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        unitLabel_4 = new JLabel(new ImageIcon(unitImage));
+        unitLabel_4.setBounds(355,500,94,95);
+        unitLabel_4.setVisible(true);
+        this.add(unitLabel_4);
+
         upgradeButton_4 =new JButton("업그레이드  500G");
         upgradeButton_4.setBounds(470,500,150,100);
         upgradeButton_4.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(upgradeButton_4);
 
+        try {
+            unitImage = ImageIO.read(new File("./img/Unit_Soldier.JPG"));
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        unitLabel_5 = new JLabel(new ImageIcon(unitImage));
+        unitLabel_5.setBounds(675,350,94,95);
+        unitLabel_5.setVisible(true);
+        this.add(unitLabel_5);
+
         upgradeButton_5 =new JButton("업그레이드  500G");
         upgradeButton_5.setBounds(790,350,150,100);
         upgradeButton_5.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(upgradeButton_5);
+
+        try {
+            unitImage = ImageIO.read(new File("./img/Unit_Warrior.JPG"));
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        unitLabel_6 = new JLabel(new ImageIcon(unitImage));
+        unitLabel_6.setBounds(675,500,94,95);
+        unitLabel_6.setVisible(true);
+        this.add(unitLabel_6);
 
         upgradeButton_6 =new JButton("업그레이드  500G");
         upgradeButton_6.setBounds(790,500,150,100);

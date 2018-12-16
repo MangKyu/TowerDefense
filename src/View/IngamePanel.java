@@ -23,6 +23,7 @@ public class IngamePanel extends BasePanel {
     public JButton summon4Button;
     private JPanel cardsPanel;
     private Thread playThread;
+    private String switchSkill = "스킬A";
 
     public IngamePanel() {
         super();
