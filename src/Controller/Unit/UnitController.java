@@ -9,8 +9,8 @@ public class UnitController {
         this.unitFactory = new UnitFactory();
     }
 
-    public BaseUnit produceUnit(String unitId, int level, boolean teamInfo) {
-        return unitFactory.produceUnit(unitId, level, teamInfo);
+    public BaseUnit produceUnit(String unitId, int level, boolean teamInfo,int positionX) {
+        return unitFactory.produceUnit(unitId, level, teamInfo, positionX);
     }
 
 }

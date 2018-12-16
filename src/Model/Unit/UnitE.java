@@ -8,8 +8,8 @@ public class UnitE extends BaseUnit {
     final static int baseSpeed = 5;
     final static int baseCost = 100;
 
-    public UnitE(int level,boolean teamInfo) {
-        super();
+    public UnitE(int level,boolean teamInfo,int positionX) {
+        super(positionX);
         this.unitId = "UNIT_E";
         InitUnit(level, teamInfo);
         th = new Thread(this);
