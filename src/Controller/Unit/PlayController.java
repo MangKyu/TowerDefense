@@ -9,7 +9,7 @@ import java.util.Iterator;
 public class PlayController implements Runnable {
 
     public static ArrayList<BaseUnit> unitList = new ArrayList<BaseUnit>();
-    private boolean isPlaying = true;
+    private boolean isPlaying = false;
 
     public void setIsPlaying(boolean playing){
         this.isPlaying = playing;
