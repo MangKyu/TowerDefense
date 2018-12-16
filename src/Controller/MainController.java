@@ -17,7 +17,6 @@ public class MainController {
 
     public MainController(){
         instance = this;
-        System.out.println("AWFAWFA");
         this.date = new Date();
         this.attackController = new AttackController();
         this.databaseController= new DatabaseController();
