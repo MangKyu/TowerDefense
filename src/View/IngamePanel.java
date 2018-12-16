@@ -40,6 +40,8 @@ public class IngamePanel extends BasePanel {
     @Override
     public void paintComponent(Graphics g) {
 
+        
+
 
         try{
             bgImage = ImageIO.read(new File("./img/bgImage.png"));
