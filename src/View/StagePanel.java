@@ -4,10 +4,12 @@ import Controller.EnemyController;
 import Controller.MainController;
 import Model.Player.PlayerInfo;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.SoftBevelBorder;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 public class StagePanel extends BasePanel {
 
@@ -22,11 +24,21 @@ public class StagePanel extends BasePanel {
     private Thread enemyThread;
     private EnemyController enemyController;
 
+    public Image bgImage;
+
     public StagePanel(JPanel cardsPanel) {
         super();
         this.cardsPanel = cardsPanel;
         playThread = new Thread(MainController.getInstance().getAttackController());
         addAction();
+    }
+
+    @Override
+    public void paintComponent(Graphics g) {
+        try{
+            bgImage = ImageIO.read(new File("./img/bgImage.png"));
+        }catch (Exception e) {}
+        g.drawImage(bgImage, 0, 0, 1000, 1000,null);
     }
 
     @Override

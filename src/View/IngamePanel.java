@@ -15,6 +15,7 @@ import java.io.File;
 
 public class IngamePanel extends BasePanel {
 
+    public JButton cancelButton;
     public JButton pauseButton;
     public JButton skillButton;
     public JButton summon1Button;
@@ -23,7 +24,6 @@ public class IngamePanel extends BasePanel {
     public JButton summon4Button;
     private JPanel cardsPanel;
     private Thread playThread;
-    private String switchSkill = "스킬A";
 
     public IngamePanel() {
         super();
@@ -66,6 +66,11 @@ public class IngamePanel extends BasePanel {
         this.setLayout(null);
         this.setSize(1000, 1000);
 
+        this.cancelButton = new JButton("돌아가기");
+        cancelButton.setBounds(520, 50, 200, 50);
+        cancelButton.setVisible(true);
+        this.add(cancelButton);
+
         this.pauseButton = new JButton("일시정지");
         pauseButton.setBounds(750, 50, 200, 50);
         pauseButton.setVisible(true);
@@ -106,6 +111,7 @@ public class IngamePanel extends BasePanel {
 
     @Override
     public void addActionListener(ActionListener actionListener) {
+        cancelButton.addActionListener(actionListener);
         pauseButton.addActionListener(actionListener);
         skillButton.addActionListener(actionListener);
         summon1Button.addActionListener(actionListener);
@@ -139,6 +145,8 @@ public class IngamePanel extends BasePanel {
 
             } else if (source.equals(summon4Button)) {
                 addUnit(3);
+            } else if (source.equals(cancelButton)) {
+                ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "StagePanel");
             }
 
         };
