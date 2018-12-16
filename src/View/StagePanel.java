@@ -93,8 +93,8 @@ public class StagePanel extends BasePanel {
                 } else if (source.equals(stage4Button)) {
                     enemyController = new EnemyController(4);
                 } else if (source.equals(stage5Button)) {
+                    enemyController = new EnemyController(5);
                 }
-                enemyController = new EnemyController(5);
                 ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "IngamePanel");
                 MainController.getInstance().getAttackController().setIsPlaying(true);
                 enemyController.setIsPlaying(true);
