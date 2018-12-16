@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Model.Player.UserInfo">
+    <!--
+    <resultMap id="userInfo" type="UserInfo">
+        <result property="id" column="id"/>
+        <result property="pw" column="pw"/>
+        <result property="money" column="money"/>
+        <result property="score" column="score"/>
+    </resultMap>
+    -->
+
+    <select id="retrieveLevelInfo" parameterType="userInfo" resultType="levelInfo">
+        SELECT
+          UNIT_A AS unitALevel,
+          UNIT_B AS unitBLevel,
+          UNIT_C AS unitCLevel,
+          UNIT_D AS unitDLevel,
+          UNIT_E AS unitELevel,
+          UNIT_F AS unitFLevel
+        FROM LEVEL_INFO WHERE id = #{id}
+    </select>
+
+</mapper>
