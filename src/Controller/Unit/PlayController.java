@@ -2,14 +2,21 @@ package Controller.Unit;
 
 import Model.Unit.BaseUnit;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class PlayController implements Runnable {
 
     public static ArrayList<BaseUnit> unitList = new ArrayList<BaseUnit>();
     private boolean isPlaying = false;
+
+    public PlayController(){
+
+    }
+
+    public void addUnit(BaseUnit unit){
+        unitList.add(unit);
+        System.out.println("Unit Added");
+    }
 
     public void setIsPlaying(boolean playing){
         this.isPlaying = playing;

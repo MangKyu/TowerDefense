@@ -11,6 +11,7 @@ import Model.Player.UserInfo;
 import Model.Unit.BaseUnit;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class PlayerController implements PlayerObserver {
     private PlayerInfo playerInfo;
@@ -83,15 +84,31 @@ public class PlayerController implements PlayerObserver {
     }
 
     public BaseUnit getUnitByIndex(int index){
-        return unitList.get(index);
+        BaseUnit unit = null;
+        try{
+            unit =  unitList.get(index);
+        }catch (IndexOutOfBoundsException e){
+
+        }
+        return unit;
     }
 
     public ArrayList getUnitList(){
         return unitList;
     }
 
-    public void addUnit(BaseUnit unit){
-        unitList.add(unit);
+    public boolean addUnit(BaseUnit newUnit){
+        boolean duplicatedFlag = false;
+        for (BaseUnit unit : unitList) {
+            if (unit.getUnitId().equals(newUnit.getUnitId())) {
+                duplicatedFlag = true;
+                break;
+            }
+        }
+        if(!duplicatedFlag){
+            unitList.add(newUnit);
+        }
+        return duplicatedFlag;
     }
 
     public void deleteUnit(BaseUnit unit){
