@@ -1,6 +1,7 @@
 package View;
 
 import Controller.MainController;
+import Model.Player.LevelInfo;
 import Model.Player.PlayerInfo;
 import Model.Player.UserInfo;
 
@@ -92,6 +93,9 @@ public class LoginPanel extends BasePanel {
                 if (userInfo == null) {
                     JOptionPane.showMessageDialog(null, "Wrong ID or Password");
                 } else {
+                    LevelInfo levelInfo = MainController.getInstance().getPlayerController().retrieveLevelInfo(userInfo);
+                    userInfo.setLevelInfo(levelInfo);
+                    MainController.getInstance().getPlayerController().getPlayerInfo().setUserInfo(userInfo);
                     ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "UnitAdminPanel");
                 }
             } else if (source.equals(signUpButton)) {
