@@ -87,10 +87,10 @@ public class LoginPanel extends BasePanel {
                 String pw = String.valueOf(pwField.getPassword());
                 UserInfo userInfo = new UserInfo(id, pw);
 
-                //userInfo = requestSignIn(userInfo);
+                userInfo = requestSignIn(userInfo);
 
                 if (userInfo == null) {
-                //    JOptionPane.showMessageDialog(null, "Wrong ID or Password");
+                    JOptionPane.showMessageDialog(null, "Wrong ID or Password");
                 } else {
                     ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "UnitAdminPanel");
                 }

@@ -24,6 +24,7 @@ public class StagePanel extends BasePanel {
         super();
         this.cardsPanel = cardsPanel;
         this.mainController = mainController;
+        playThread = new Thread(mainController.getPlayController());
         addAction();
     }
 
@@ -83,8 +84,7 @@ public class StagePanel extends BasePanel {
                 ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "UnitAdminPanel");
             }else{
                 ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "IngamePanel");
-                playThread = new Thread(mainController.getAttackController());
-                mainController.getAttackController().setIsPlaying(true);
+                mainController.getPlayController().setIsPlaying(true);
                 playThread.start();;
             }
         };

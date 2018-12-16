@@ -1,7 +1,7 @@
 package Model.Unit;
 
 import Controller.PlayerController;
-import Controller.Unit.AttackController;
+import Controller.Unit.PlayController;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -44,7 +44,7 @@ public abstract class BaseUnit implements Runnable {
         return this.id;
     }
     public void attack() {
-        AttackController.InflictDamage(this.id, this.power);
+        PlayController.InflictDamage(this.id, this.power);
     }
 
     public void move() {
