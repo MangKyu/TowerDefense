@@ -138,4 +138,12 @@ public abstract class BaseUnit implements Runnable {
             }
         }
     }
+
+    public String getUnitId() {
+        return unitId;
+    }
+
+    public void setUnitId(String unitId) {
+        this.unitId = unitId;
+    }
 }
