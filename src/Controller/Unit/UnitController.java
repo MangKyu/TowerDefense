@@ -13,9 +13,9 @@ public class UnitController {
         this.unitFactory = new UnitFactory();
     }
 
-    public BaseUnit produceUnit(String unitId, int level) {
+    public BaseUnit produceUnit(String unitId, int level, boolean teamInfo) {
 
-        return unitFactory.produceUnit(unitId, level);
+        return unitFactory.produceUnit(unitId, level, teamInfo);
     }
 
 }

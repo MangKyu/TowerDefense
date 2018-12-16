@@ -8,17 +8,14 @@ import java.util.Iterator;
 
 public class PlayController implements Runnable {
 
-    public static ArrayList<BaseUnit> unitList;
+    public static ArrayList<BaseUnit> unitList = new ArrayList<BaseUnit>();
     private boolean isPlaying = true;
 
     public void run() {
         while (isPlaying) {
             BaseUnit b1;
             BaseUnit b2;
-            Iterator<BaseUnit> unit = unitList.iterator();
-
-            if (unit != null) {
-
+            if (unitList.size() != 0) {
                 for (int i = 0; i < unitList.size(); i++) {
                     b1 = unitList.get(i);
                     int enemyNum = 0;
