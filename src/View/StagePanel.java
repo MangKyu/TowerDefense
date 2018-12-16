@@ -85,18 +85,25 @@ public class StagePanel extends BasePanel {
             Object source = e.getSource();
             if (source.equals(unitAdminButton)) {
                 ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "UnitAdminPanel");
-            } else if (source.equals(stage1Button)) {
+            } else {
+                if (source.equals(stage1Button)) {
+                    enemyController = new EnemyController(1);
+                } else if (source.equals(stage2Button)) {
+                    enemyController = new EnemyController(2);
+                } else if (source.equals(stage3Button)) {
+                    enemyController = new EnemyController(3);
+                } else if (source.equals(stage4Button)) {
+                    enemyController = new EnemyController(4);
+                } else if (source.equals(stage5Button)) {
+                }
+                enemyController = new EnemyController(5);
                 ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "IngamePanel");
                 mainController.getAttackController().setIsPlaying(true);
+                enemyController.setIsPlaying(true);
+                enemyThread = new Thread(enemyController);
                 playThread.start();
-                ;
-            } else if (source.equals(stage2Button)) {
+                enemyThread.start();
 
-            } else if (source.equals(stage3Button)) {
-
-            } else if (source.equals(stage4Button)) {
-
-            } else if (source.equals(stage5Button)) {
             }
         };
 

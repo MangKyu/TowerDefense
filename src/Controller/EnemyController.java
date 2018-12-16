@@ -16,6 +16,7 @@ public class EnemyController implements Runnable {
     public EnemyController(int stageNum) {
         this.stageNum = stageNum;
         this.mp += stageNum * 100;
+        this.isPlaying = false;
         isPlaying = false;
         random = new Random();
         unitFactory = new UnitFactory();
