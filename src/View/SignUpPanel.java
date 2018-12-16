@@ -9,8 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class LoginPanel extends BasePanel {
-
+public class SignUpPanel extends BasePanel{
     public JButton signInButton;
     public JButton signUpButton;
     public JTextField idField;
@@ -19,11 +18,11 @@ public class LoginPanel extends BasePanel {
     public JLabel pwLabel;
     private JPanel cardsPanel;
 
-    public LoginPanel() {
+    public SignUpPanel() {
         super();
     }
 
-    public LoginPanel(JPanel cardsPanel) {
+    public SignUpPanel(JPanel cardsPanel) {
         super();
         this.cardsPanel = cardsPanel;
         addAction();
@@ -35,12 +34,12 @@ public class LoginPanel extends BasePanel {
         this.setLayout(null);
         this.setSize(1000, 1000);
 
-        this.idLabel = new JLabel("I D");
+        this.idLabel = new JLabel("I D  입 력");
         idLabel.setBounds(300, 300, 200, 60);
         idLabel.setVisible(true);
         this.add(idLabel);
 
-        this.pwLabel = new JLabel("P W");
+        this.pwLabel = new JLabel("P W  입 력");
         pwLabel.setBounds(300, 400, 200, 60);
         pwLabel.setVisible(true);
         this.add(pwLabel);
@@ -54,11 +53,6 @@ public class LoginPanel extends BasePanel {
         pwField.setBounds(650, 400, 200, 60);
         pwField.setVisible(true);
         this.add(pwField);
-
-        this.signInButton = new JButton("Sign In");
-        signInButton.setBounds(200, 600, 200, 60);
-        signInButton.setVisible(true);
-        this.add(signInButton);
 
         this.signUpButton = new JButton("Sign Up");
         signUpButton.setBounds(600, 600, 200, 60);
@@ -75,7 +69,6 @@ public class LoginPanel extends BasePanel {
 
     @Override
     protected void addActionListener(ActionListener actionListener) {
-        signInButton.addActionListener(actionListener);
         signUpButton.addActionListener(actionListener);
     }
 
@@ -83,23 +76,18 @@ public class LoginPanel extends BasePanel {
     protected void addAction() {
         ActionListener actionListener = e -> {
             Object source = e.getSource();
-            if (source.equals(signInButton)) {
+            if (source.equals(signUpButton)) {
                 String id = idField.getText();
                 String pw = String.valueOf(pwField.getPassword());
                 UserInfo userInfo = new UserInfo(id, pw);
 
-                userInfo = requestSignIn(userInfo);
+                boolean signUpFlag = requestSignUp(userInfo);
 
-                if (userInfo == null) {
-                    JOptionPane.showMessageDialog(null, "Wrong ID or Password");
+                if (signUpFlag) {
+                    ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "LoginPanel");
                 } else {
-                    LevelInfo levelInfo = MainController.getInstance().getPlayerController().retrieveLevelInfo(userInfo);
-                    userInfo.setLevelInfo(levelInfo);
-                    MainController.getInstance().getPlayerController().getPlayerInfo().setUserInfo(userInfo);
-                    ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "UnitAdminPanel");
+                    JOptionPane.showMessageDialog(null, "existing ID");
                 }
-            } else if (source.equals(signUpButton)) {
-                ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "SignUpPanel");
             }
         };
 
@@ -107,10 +95,8 @@ public class LoginPanel extends BasePanel {
 
     }
 
-    private UserInfo requestSignIn(UserInfo userInfo) {
-        userInfo = MainController.getInstance().getPlayerController().signIn(userInfo);
-        return userInfo;
+    private boolean requestSignUp(UserInfo userInfo) {
+        boolean signUpFlag = MainController.getInstance().getPlayerController().signUp(userInfo);
+        return signUpFlag;
     }
-
-
 }

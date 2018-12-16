@@ -65,9 +65,9 @@ public class PlayerController implements PlayerObserver {
         return userInfo;
     }
 
-    public boolean signUp(PlayerInfo playerInfo){
+    public boolean signUp(UserInfo userInfo){
         UserDAO userDAO = DatabaseController.getInstance().acquireUserDAO();
-        int result = userDAO.insertUserInfo(playerInfo.getUserInfo());
+        int result = userDAO.insertUserInfo(userInfo);
         DatabaseController.getInstance().releaseDatabase(userDAO);
         return result > 0;
     }

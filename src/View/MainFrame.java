@@ -14,6 +14,7 @@ public class MainFrame extends JFrame {
     private JPanel cardsPanel;
     private Container container;
     private LoginPanel loginPanel;
+    private SignUpPanel signUpPanel;
     private StagePanel stagePanel;
     private IngamePanel ingamePanel;
     private UnitAdminPanel unitAdminPanel;
@@ -33,6 +34,9 @@ public class MainFrame extends JFrame {
         loginPanel = new LoginPanel(cardsPanel);
         cardsPanel.add(loginPanel, "LoginPanel");
         //loginPanel.addActionListener(loginPanelListener);
+
+        signUpPanel = new SignUpPanel(cardsPanel);
+        cardsPanel.add(signUpPanel, "SignUpPanel");
 
         stagePanel = new StagePanel(cardsPanel);
         cardsPanel.add(stagePanel, "StagePanel");
