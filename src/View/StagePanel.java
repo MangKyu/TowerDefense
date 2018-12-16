@@ -20,6 +20,7 @@ public class StagePanel extends BasePanel {
     public StagePanel(JPanel cardsPanel){
         super();
         this.cardsPanel = cardsPanel;
+        addAction();
     }
 
     @Override
@@ -75,7 +76,7 @@ public class StagePanel extends BasePanel {
         ActionListener actionListener = e -> {
             Object source = e.getSource();
             if (source.equals(unitAdminButton)) {
-
+                ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "UnitAdminPanel");
             }else{
                 ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "IngamePanel");
             }

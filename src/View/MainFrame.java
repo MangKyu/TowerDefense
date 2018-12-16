@@ -16,6 +16,7 @@ public class MainFrame extends JFrame {
     private LoginPanel loginPanel;
     private StagePanel stagePanel;
     private IngamePanel ingamePanel;
+    private UnitAdminPanel unitAdminPanel;
 
     private MainController mainController;
     private PlayerObserver playerObserver;
@@ -38,6 +39,9 @@ public class MainFrame extends JFrame {
 
         ingamePanel = new IngamePanel(cardsPanel);
         cardsPanel.add(ingamePanel, "IngamePanel");
+
+        unitAdminPanel = new UnitAdminPanel(cardsPanel);
+        cardsPanel.add(unitAdminPanel, "UnitAdminPanel");
 
         container.add(cardsPanel);
         this.setBounds(30, 30, 1000, 1000);
