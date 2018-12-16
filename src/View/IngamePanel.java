@@ -1,12 +1,9 @@
 package View;
 
-        import Controller.MainController;
-        import Model.Player.PlayerInfo;
-        import Model.Player.UserInfo;
+import Model.Player.PlayerInfo;
 
-        import javax.swing.*;
-        import java.awt.*;
-        import java.awt.event.ActionListener;
+import javax.swing.*;
+import java.awt.event.ActionListener;
 
 public class IngamePanel extends BasePanel {
 
@@ -16,9 +13,14 @@ public class IngamePanel extends BasePanel {
     public JButton Summon2;
     public JButton Summon3;
     public JButton Summon4;
+    private JPanel cardsPanel;
 
     public IngamePanel() {
         super();
+    }
+
+    public IngamePanel(JPanel cardsPanel) {
+        this.cardsPanel = cardsPanel;
     }
 
 
@@ -29,38 +31,38 @@ public class IngamePanel extends BasePanel {
         System.out.println("LoginPanel Created");
 
         this.Pause = new JButton("일시정지");
-        Pause.setBounds(500,100,200,50);
+        Pause.setBounds(500, 100, 200, 50);
         Pause.setVisible(true);
         this.add(Pause);
 
         this.SkillButton = new JButton("스킬");
-        SkillButton.setBounds(100,600,100, 100);
+        SkillButton.setBounds(100, 600, 100, 100);
         SkillButton.setVisible(true);
         this.add(SkillButton);
 
         this.Summon1 = new JButton("유닛1");
-        Summon1.setBounds(300,650,75,75);
+        Summon1.setBounds(300, 650, 75, 75);
         Summon1.setVisible(true);
         this.add(Summon1);
 
         this.Summon2 = new JButton("유닛2");
-        Summon2.setBounds(400,650,75,75);
+        Summon2.setBounds(400, 650, 75, 75);
         Summon2.setVisible(true);
         this.add(Summon2);
 
         this.Summon3 = new JButton("유닛3");
-        Summon3.setBounds(500,650,75,75);
+        Summon3.setBounds(500, 650, 75, 75);
         Summon3.setVisible(true);
         this.add(Summon3);
 
         this.Summon4 = new JButton("유닛4");
-        Summon4.setBounds(600,650,75,75);
+        Summon4.setBounds(600, 650, 75, 75);
         Summon4.setVisible(true);
         this.add(Summon4);
 
         this.setVisible(true);
     }
-    
+
     @Override
     public void update(PlayerInfo playerInfo) {
         System.out.println("Player Info is updated");
@@ -74,5 +76,26 @@ public class IngamePanel extends BasePanel {
         Summon2.addActionListener(actionListener);
         Summon3.addActionListener(actionListener);
         Summon4.addActionListener(actionListener);
+    }
+
+    @Override
+    protected void addAction() {
+        ActionListener actionListener = e -> {
+            Object source = e.getSource();
+            if (source.equals(Pause)) {
+
+            } else if (source.equals(SkillButton)) {
+
+            }else if(source.equals(Summon1)){
+
+            }else if(source.equals(Summon2)){
+
+            }else if(source.equals(Summon3)){
+
+            }else if(source.equals(Summon4)){
+
+            }
+        };
+        addActionListener(actionListener);
     }
 }

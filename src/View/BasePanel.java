@@ -13,4 +13,7 @@ public abstract class BasePanel extends JPanel implements Observer {
     protected abstract void initComponents();
 
     protected abstract void addActionListener(ActionListener actionListener);
+
+    protected abstract void addAction();
+
 }

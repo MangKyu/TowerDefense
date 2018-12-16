@@ -5,6 +5,7 @@ import Model.Player.PlayerInfo;
 import Model.Player.UserInfo;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class LoginPanel extends BasePanel {
@@ -15,9 +16,16 @@ public class LoginPanel extends BasePanel {
     public JPasswordField pwField;
     public JLabel idLabel;
     public JLabel pwLabel;
+    private JPanel cardsPanel;
 
     public LoginPanel() {
         super();
+    }
+
+    public LoginPanel(JPanel cardsPanel) {
+        super();
+        this.cardsPanel = cardsPanel;
+        addAction();
     }
 
 
@@ -65,12 +73,37 @@ public class LoginPanel extends BasePanel {
     }
 
     @Override
-    public void addActionListener(ActionListener actionListener) {
+    protected void addActionListener(ActionListener actionListener) {
         signInButton.addActionListener(actionListener);
         signUpButton.addActionListener(actionListener);
     }
 
-    public UserInfo requestSignIn(UserInfo userInfo) {
+    @Override
+    protected void addAction() {
+        ActionListener actionListener = e -> {
+            Object source = e.getSource();
+            if (source.equals(signInButton)) {
+                String id = idField.getText();
+                String pw = String.valueOf(pwField.getPassword());
+                UserInfo userInfo = new UserInfo(id, pw);
+
+                userInfo = requestSignIn(userInfo);
+
+                if (userInfo == null) {
+                    JOptionPane.showMessageDialog(null, "Wrong ID or Password");
+                } else {
+                    ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "StagePanel");
+                }
+            } else if (source.equals(signUpButton)) {
+
+            }
+        };
+
+        addActionListener(actionListener);
+
+    }
+
+    private UserInfo requestSignIn(UserInfo userInfo) {
         userInfo = MainController.getInstance().getPlayerController().signIn(userInfo);
         return userInfo;
     }
