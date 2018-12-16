@@ -1,5 +1,6 @@
 package View;
 
+import Controller.EnemyController;
 import Controller.MainController;
 import Model.Player.PlayerInfo;
 
@@ -18,48 +19,48 @@ public class StagePanel extends BasePanel {
     public JButton stage5Button;
     private JPanel cardsPanel;
     private Thread playThread;
-    private MainController mainController;
+    private Thread enemyThread;
+    private EnemyController enemyController;
 
-    public StagePanel(JPanel cardsPanel, MainController mainController){
+    public StagePanel(JPanel cardsPanel) {
         super();
         this.cardsPanel = cardsPanel;
-        this.mainController = mainController;
-        playThread = new Thread(mainController.getPlayController());
+        playThread = new Thread(MainController.getInstance().getAttackController());
         addAction();
     }
 
     @Override
-    protected void initComponents(){
+    protected void initComponents() {
         this.setLayout(null);
         this.setSize(1000, 1000);
 
-        unitAdminButton =new JButton("내 유닛 관리");
-        unitAdminButton.setBounds(30,15,150,100);
+        unitAdminButton = new JButton("내 유닛 관리");
+        unitAdminButton.setBounds(30, 15, 150, 100);
         unitAdminButton.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(unitAdminButton);
 
-        stage1Button =new JButton("stage 1");
-        stage1Button.setBounds(30,425,150,100);
+        stage1Button = new JButton("stage 1");
+        stage1Button.setBounds(30, 425, 150, 100);
         stage1Button.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(stage1Button);
 
-        stage2Button =new JButton("stage 2");
-        stage2Button.setBounds(210,425,150,100);
+        stage2Button = new JButton("stage 2");
+        stage2Button.setBounds(210, 425, 150, 100);
         stage2Button.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(stage2Button);
 
-        stage3Button =new JButton("stage 3");
-        stage3Button.setBounds(390,425,150,100);
+        stage3Button = new JButton("stage 3");
+        stage3Button.setBounds(390, 425, 150, 100);
         stage3Button.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(stage3Button);
 
-        stage4Button=new JButton("stage 4");
-        stage4Button.setBounds(570,425,150,100);
+        stage4Button = new JButton("stage 4");
+        stage4Button.setBounds(570, 425, 150, 100);
         stage4Button.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(stage4Button);
 
-        stage5Button=new JButton("stage 5");
-        stage5Button.setBounds(750,425,150,100);
+        stage5Button = new JButton("stage 5");
+        stage5Button.setBounds(750, 425, 150, 100);
         stage5Button.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(stage5Button);
 
@@ -82,10 +83,25 @@ public class StagePanel extends BasePanel {
             Object source = e.getSource();
             if (source.equals(unitAdminButton)) {
                 ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "UnitAdminPanel");
-            }else{
+            } else {
+                if (source.equals(stage1Button)) {
+                    enemyController = new EnemyController(1);
+                } else if (source.equals(stage2Button)) {
+                    enemyController = new EnemyController(2);
+                } else if (source.equals(stage3Button)) {
+                    enemyController = new EnemyController(3);
+                } else if (source.equals(stage4Button)) {
+                    enemyController = new EnemyController(4);
+                } else if (source.equals(stage5Button)) {
+                }
+                enemyController = new EnemyController(5);
                 ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "IngamePanel");
-                mainController.getPlayController().setIsPlaying(true);
-                playThread.start();;
+                MainController.getInstance().getAttackController().setIsPlaying(true);
+                enemyController.setIsPlaying(true);
+                enemyThread = new Thread(enemyController);
+                playThread.start();
+                enemyThread.start();
+
             }
         };
 

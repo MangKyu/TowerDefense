@@ -1,14 +1,10 @@
 package Model.Player;
 
 import Controller.Strategy.SkillStrategy;
-import Model.Unit.BaseUnit;
-
-import java.util.Queue;
 
 public class PlayerInfo {
     private int hp;
     private int mp;
-    private Queue<BaseUnit> unitQueue;
     private UserInfo userInfo;
     private SkillStrategy skillStrategy;
     private boolean skillFlag;
@@ -27,14 +23,6 @@ public class PlayerInfo {
 
     public void setMp(int mp) {
         this.mp = mp;
-    }
-
-    public Queue<BaseUnit> getUnitQueue() {
-        return unitQueue;
-    }
-
-    public void setUnitQueue(Queue<BaseUnit> unitQueue) {
-        this.unitQueue = unitQueue;
     }
 
     public UserInfo getUserInfo() {
@@ -59,14 +47,6 @@ public class PlayerInfo {
 
     public void setSkillFlag(boolean skillFlag) {
         this.skillFlag = skillFlag;
-    }
-
-    public void addUnit(BaseUnit unit){
-        unitQueue.offer(unit);
-    }
-
-    public void deleteUnit(BaseUnit unit){
-        unitQueue.remove(unit);
     }
 
 }

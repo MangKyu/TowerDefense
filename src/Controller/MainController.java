@@ -1,7 +1,7 @@
 package Controller;
 
 import Controller.Database.DatabaseController;
-import Controller.Unit.PlayController;
+import Controller.Unit.AttackController;
 import Controller.Unit.UnitController;
 
 import java.text.SimpleDateFormat;
@@ -13,11 +13,13 @@ public class MainController {
     private DatabaseController databaseController;
     private UnitController unitController;
     private PlayerController playerController;
-    private PlayController playController;
+    private AttackController attackController;
 
     public MainController(){
+        instance = this;
+        System.out.println("AWFAWFA");
         this.date = new Date();
-        this.playController = new PlayController();
+        this.attackController = new AttackController();
         this.databaseController= new DatabaseController();
         this.playerController = new PlayerController();
         this.unitController = new UnitController();
@@ -44,8 +46,8 @@ public class MainController {
         return playerController;
     }
 
-    public PlayController getPlayController(){
-        return this.playController;
+    public AttackController getAttackController(){
+        return this.attackController;
     }
 
     public static MainController getInstance(){

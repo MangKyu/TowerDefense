@@ -1,6 +1,9 @@
 package View;
 
+import Controller.MainController;
 import Model.Player.PlayerInfo;
+import Model.Unit.BaseUnit;
+import Model.Unit.UnitA;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -181,9 +184,18 @@ public class UnitAdminPanel extends BasePanel {
         ActionListener actionListener = e -> {
             Object source = e.getSource();
             if (source.equals(finishButton)) {
-                ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "StagePanel");
-            } else{
+                if(MainController.getInstance().getPlayerController().getUnitList().size() <= 0 ){
+                    JOptionPane.showMessageDialog(null, "Unit is not Selected");
+                }else{
+                    ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "StagePanel");
+                }
 
+            } else if(source.equals(upgradeButton_1)){
+                BaseUnit unit = new UnitA(1, true);
+                boolean duplicatedFlag = MainController.getInstance().getPlayerController().addUnit(unit);
+                if(duplicatedFlag){
+                    JOptionPane.showMessageDialog(null, "Duplicated Unit is Selected");
+                }
             }
         };
 
