@@ -57,21 +57,51 @@ public class UnitAdminPanel extends BasePanel {
         pointSelectedUnit.setBounds(30, 15, 400, 150);
         this.add(pointSelectedUnit);
         */
-
+        // label -> size : 100 100
         upgradeButton_1 =new JButton("업그레이드\n  500G");
-        upgradeButton_1.setBounds(30,250,150,100);
+        upgradeButton_1.setBounds(150,250,150,100);
         upgradeButton_1.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(upgradeButton_1);
 
         upgradeButton_2 =new JButton("업그레이드\n  500G");
-        upgradeButton_2.setBounds(150,250,150,100);
+        upgradeButton_2.setBounds(150,400,150,100);
         upgradeButton_2.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(upgradeButton_2);
 
         upgradeButton_3 =new JButton("업그레이드\n  500G");
-        upgradeButton_3.setBounds(280,250,150,100);
+        upgradeButton_3.setBounds(150,550,150,100);
         upgradeButton_3.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(upgradeButton_3);
+
+        upgradeButton_4 =new JButton("업그레이드\n  500G");
+        upgradeButton_4.setBounds(470,250,150,100);
+        upgradeButton_4.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
+        this.add(upgradeButton_4);
+
+        upgradeButton_5 =new JButton("업그레이드\n  500G");
+        upgradeButton_5.setBounds(470,400,150,100);
+        upgradeButton_5.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
+        this.add(upgradeButton_5);
+
+        upgradeButton_6 =new JButton("업그레이드\n  500G");
+        upgradeButton_6.setBounds(470,550,150,100);
+        upgradeButton_6.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
+        this.add(upgradeButton_6);
+
+        upgradeButton_7 =new JButton("업그레이드\n  500G");
+        upgradeButton_7.setBounds(790,250,150,100);
+        upgradeButton_7.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
+        this.add(upgradeButton_7);
+
+        upgradeButton_8 =new JButton("업그레이드\n  500G");
+        upgradeButton_8.setBounds(790,400,150,100);
+        upgradeButton_8.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
+        this.add(upgradeButton_8);
+
+        upgradeButton_9 =new JButton("업그레이드\n  500G");
+        upgradeButton_9.setBounds(790,550,150,100);
+        upgradeButton_9.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
+        this.add(upgradeButton_9);
 
         this.setVisible(true);
     }
@@ -82,7 +112,12 @@ public class UnitAdminPanel extends BasePanel {
         upgradeButton_1.addActionListener(actionListener);
         upgradeButton_2.addActionListener(actionListener);
         upgradeButton_3.addActionListener(actionListener);
-
+        upgradeButton_4.addActionListener(actionListener);
+        upgradeButton_5.addActionListener(actionListener);
+        upgradeButton_6.addActionListener(actionListener);
+        upgradeButton_7.addActionListener(actionListener);
+        upgradeButton_8.addActionListener(actionListener);
+        upgradeButton_9.addActionListener(actionListener);
     }
 
     @Override
@@ -92,8 +127,8 @@ public class UnitAdminPanel extends BasePanel {
             Object source = e.getSource();
             if (source.equals(finishButton)) {
                 ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "StagePanel");
-            }else{
-                ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "IngamePanel");
+            } else{
+
             }
         };
 
