@@ -6,6 +6,7 @@
 <configuration>
     <typeAliases>
         <typeAlias alias="userInfo" type="Model.Player.UserInfo"/>
+        <typeAlias alias="levelInfo" type="Model.Player.LevelInfo"/>
     </typeAliases>
 
     <environments default="development">
@@ -22,5 +23,6 @@
     </environments>
     <mappers>
         <mapper resource=".\sql\mapper\UserMapper.xml"/>
+        <mapper resource=".\sql\mapper\LevelMapper.xml"/>
     </mappers>
 </configuration>
