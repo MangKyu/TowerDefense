@@ -30,8 +30,11 @@ public class UnitAdminPanel extends BasePanel {
     public JLabel unitLabel_7;
     public JLabel unitLabel_8;
     public JLabel unitLabel_9;
-    private JPanel cardsPanel;
+
     private JLabel pointSelectedUnit;
+
+    public Image entryArrow;
+    private JPanel cardsPanel;
 
     public UnitAdminPanel(){
         super();
@@ -137,6 +140,6 @@ public class UnitAdminPanel extends BasePanel {
 
     @Override
     public void update(PlayerInfo playerInfo) {
-
+        System.out.println("Player Info is updated");
     }
 }
