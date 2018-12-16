@@ -31,11 +31,12 @@ public class MainFrame extends JFrame {
 
         loginPanel = new LoginPanel(cardsPanel);
         cardsPanel.add(loginPanel, "LoginPanel");
+        //loginPanel.addActionListener(loginPanelListener);
 
         stagePanel = new StagePanel(cardsPanel);
         cardsPanel.add(stagePanel, "StagePanel");
 
-        ingamePanel = new IngamePanel(cardsPanel,mainController);
+        ingamePanel = new IngamePanel(cardsPanel);
         cardsPanel.add(ingamePanel, "IngamePanel");
 
         container.add(cardsPanel);

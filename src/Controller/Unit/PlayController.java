@@ -9,11 +9,8 @@ import java.util.Iterator;
 public class PlayController implements Runnable {
 
     public static ArrayList<BaseUnit> unitList = new ArrayList<BaseUnit>();
-    private static  boolean isPlaying = false;
+    private boolean isPlaying = true;
 
-    public  void setIsPlaying(boolean playing){
-        isPlaying = playing;
-    }
     public void run() {
         while (isPlaying) {
             BaseUnit b1;
