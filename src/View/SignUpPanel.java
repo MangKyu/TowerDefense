@@ -74,6 +74,7 @@ public class SignUpPanel extends BasePanel{
 
     @Override
     protected void addActionListener(ActionListener actionListener) {
+        cancelButton.addActionListener(actionListener);
         signUpButton.addActionListener(actionListener);
     }
 
