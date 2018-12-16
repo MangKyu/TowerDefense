@@ -2,10 +2,12 @@ package View;
 
 import Model.Player.PlayerInfo;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.SoftBevelBorder;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 public class UnitAdminPanel extends BasePanel {
 
@@ -31,9 +33,13 @@ public class UnitAdminPanel extends BasePanel {
     public JLabel unitLabel_8;
     public JLabel unitLabel_9;
 
-    private JLabel pointSelectedUnit;
+    public JLabel pointSelectedUnit_1;
+    public JLabel pointSelectedUnit_2;
+    public JLabel pointSelectedUnit_3;
+    public JLabel pointSelectedUnit_4;
 
     public Image entryArrow;
+    public Image bgImage;
     private JPanel cardsPanel;
 
     public UnitAdminPanel(){
@@ -46,6 +52,18 @@ public class UnitAdminPanel extends BasePanel {
         addAction();
     }
 
+    @Override
+    public void paintComponent(Graphics g) {
+        try{
+            bgImage = ImageIO.read(new File("./img/bgImage.png"));
+        }catch (Exception e) {}
+        g.drawImage(bgImage, 0, 0, 1000, 1000,null);
+        try{
+            entryArrow = ImageIO.read(new File("./img/selectPoint.png"));
+        }catch (Exception e) {}
+        g.drawImage(entryArrow, 30, 15, 400, 150,null);
+
+    }
     @Override
     protected void initComponents(){
         this.setLayout(null);

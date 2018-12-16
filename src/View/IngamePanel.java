@@ -121,6 +121,8 @@ public class IngamePanel extends BasePanel {
             Object source = e.getSource();
             if (source.equals(SkillButton)) {
 
+            } else if(source.equals(Pause)) {
+                ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "StagePanel");
             }
 
         };
