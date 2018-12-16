@@ -7,7 +7,7 @@ public class UnitC extends BaseUnit {
     final static int baseSpeed = 5;
     final static int baseCost = 100;
 
-    public UnitC(int level) {
+    public UnitC(int level,boolean teamInfo) {
         super();
         this.unitId = "UNIT_C";
         InitUnit(level, teamInfo);

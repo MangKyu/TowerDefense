@@ -8,11 +8,10 @@ public class UnitA extends BaseUnit {
     final static int baseCost = 100;
 
 
-    public UnitA(int level) {
+    public UnitA(int level,boolean teamInfo) {
         super();
         this.unitId = "UNIT_A";
         InitUnit(level, teamInfo);
-        run();
     }
 
     @Override

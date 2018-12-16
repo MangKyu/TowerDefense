@@ -9,9 +9,11 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public abstract class BaseUnit implements Runnable {
     private final Lock lock = new ReentrantLock(true);
+    //UNIT A B C D E F HAS DIFFERENT UNITID
     String unitId;
+    //VARIABLE FOR ID INITIALIZE. NEED TO BE LOCKED BEFORE INITIALIZE
     static int commonId = 0;
-    //Every Unit has specific Id for distinction
+    //Every UNIT HAS SPECIFIC ID THOUGH SOME UNITS HAVE COMMON UNITID
     int id;
     int hp;
     int power;
