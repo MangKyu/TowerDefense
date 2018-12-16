@@ -22,8 +22,6 @@ public class MainController {
         this.databaseController= new DatabaseController();
         this.playerController = new PlayerController();
         this.unitController = new UnitController();
-        th= new Thread(playController);
-        th.start();
     }
 
     public String getCurrentDate(){
@@ -47,6 +45,9 @@ public class MainController {
         return playerController;
     }
 
+    public PlayController getPlayController(){
+        return playController;
+    }
     public static MainController getInstance(){
         if(instance == null){
             instance = new MainController();

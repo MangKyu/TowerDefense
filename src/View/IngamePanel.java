@@ -1,5 +1,6 @@
 package View;
 
+import Controller.MainController;
 import Model.Player.PlayerInfo;
 
 import javax.swing.*;
@@ -14,13 +15,18 @@ public class IngamePanel extends BasePanel {
     public JButton Summon3;
     public JButton Summon4;
     private JPanel cardsPanel;
-
+    private MainController mainController;
+    private Thread playThread;
     public IngamePanel() {
         super();
     }
 
-    public IngamePanel(JPanel cardsPanel) {
+    public IngamePanel(JPanel cardsPanel, MainController mainController) {
         this.cardsPanel = cardsPanel;
+        this.mainController = mainController;
+        playThread = new Thread(mainController.getPlayController());
+        mainController.getPlayController().setIsPlaying(true);
+        playThread.start();
     }
 
 

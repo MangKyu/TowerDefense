@@ -1,5 +1,6 @@
 package View;
 
+import Controller.MainController;
 import Model.Player.PlayerInfo;
 
 import javax.swing.*;
@@ -17,9 +18,11 @@ public class StagePanel extends BasePanel {
     public JButton stage5Button;
     private JPanel cardsPanel;
 
+
     public StagePanel(JPanel cardsPanel){
         super();
         this.cardsPanel = cardsPanel;
+
     }
 
     @Override
@@ -73,6 +76,7 @@ public class StagePanel extends BasePanel {
     @Override
     protected void addAction() {
         ActionListener actionListener = e -> {
+
             Object source = e.getSource();
             if (source.equals(unitAdminButton)) {
 
@@ -80,7 +84,6 @@ public class StagePanel extends BasePanel {
                 ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "IngamePanel");
             }
         };
-
         addActionListener(actionListener);
     }
 
