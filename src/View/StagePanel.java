@@ -4,6 +4,7 @@ import Model.Player.PlayerInfo;
 
 import javax.swing.*;
 import javax.swing.border.SoftBevelBorder;
+import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class StagePanel extends BasePanel {
@@ -14,9 +15,12 @@ public class StagePanel extends BasePanel {
     public JButton stage3Button;
     public JButton stage4Button;
     public JButton stage5Button;
+    private JPanel cardsPanel;
 
-    public StagePanel(){
+    public StagePanel(JPanel cardsPanel){
         super();
+        this.cardsPanel = cardsPanel;
+        addAction();
     }
 
     @Override
@@ -65,6 +69,20 @@ public class StagePanel extends BasePanel {
         stage3Button.addActionListener(actionListener);
         stage4Button.addActionListener(actionListener);
         stage5Button.addActionListener(actionListener);
+    }
+
+    @Override
+    protected void addAction() {
+        ActionListener actionListener = e -> {
+            Object source = e.getSource();
+            if (source.equals(unitAdminButton)) {
+                ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "UnitAdminPanel");
+            }else{
+                ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "IngamePanel");
+            }
+        };
+
+        addActionListener(actionListener);
     }
 
     @Override

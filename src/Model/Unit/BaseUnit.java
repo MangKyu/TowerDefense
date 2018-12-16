@@ -3,8 +3,18 @@ package Model.Unit;
 import Controller.PlayerController;
 import Controller.Unit.PlayController;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+
 public abstract class BaseUnit implements Runnable {
+    private final Lock lock = new ReentrantLock(true);
+    //UNIT A B C D E F HAS DIFFERENT UNITID
     String unitId;
+    //VARIABLE FOR ID INITIALIZE. NEED TO BE LOCKED BEFORE INITIALIZE
+    static int commonId = 0;
+    //Every UNIT HAS SPECIFIC ID THOUGH SOME UNITS HAVE COMMON UNITID
+    int id;
     int hp;
     int power;
     int level;
@@ -14,35 +24,49 @@ public abstract class BaseUnit implements Runnable {
     boolean isAttack = false;
     int cost;
     int positionX = 150;
+    int positionY = 500;
     public final static int attackRange = 15;
+    Thread th;
 
 
     public BaseUnit() {
+        lock.lock();
+        try {
+            id = commonId;
+            commonId++;
+        } catch (Exception e) {
+        } finally {
+            lock.unlock();
+        }
     }
 
+    public int getId(){
+        return this.id;
+    }
     public void attack() {
-        PlayController.InflictDamage(this,this.power);
+        PlayController.InflictDamage(this.id, this.power);
     }
 
     public void move() {
         this.positionX += this.speed;
     }
 
-    public void setIsAttack(boolean isAttack){
+    public void setIsAttack(boolean isAttack) {
         this.isAttack = isAttack;
     }
 
-    public boolean getIsAttack(){
+    public boolean getIsAttack() {
         return this.isAttack;
     }
 
-    public void setX(int x){
+    public void setX(int x) {
         this.positionX = x;
     }
 
-    public int getX(){
+    public int getX() {
         return this.positionX;
     }
+
     public void setHp(int hp) {
         this.hp = hp;
     }
@@ -91,11 +115,11 @@ public abstract class BaseUnit implements Runnable {
         return this.cost;
     }
 
-    public void InitUnit(int level,boolean teamInfo) {
+    public void InitUnit(int level, boolean teamInfo) {
     }
 
-    public boolean AliveDetection(){
-        if(this.hp<=0){
+    public boolean AliveDetection() {
+        if (this.hp <= 0) {
             this.isAlive = false;
         }
         return isAlive;

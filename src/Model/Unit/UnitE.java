@@ -8,18 +8,14 @@ public class UnitE extends BaseUnit {
     final static int baseSpeed = 5;
     final static int baseCost = 100;
 
-    public UnitE(int level) {
+    public UnitE(int level,boolean teamInfo) {
         super();
         this.unitId = "UNIT_E";
         InitUnit(level, teamInfo);
-        run();
+        th = new Thread(this);
+        th.start();
     }
 
-    @Override
-    public void attack() {
-        //super.attack();
-        System.out.println("UnitA Attack");
-    }
 
     public void InitUnit(int level, boolean teamInfo) {
         int tempHp;

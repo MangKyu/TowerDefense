@@ -4,6 +4,7 @@ import Model.Player.PlayerInfo;
 
 import javax.swing.*;
 import javax.swing.border.SoftBevelBorder;
+import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class UnitAdminPanel extends BasePanel {
@@ -29,11 +30,17 @@ public class UnitAdminPanel extends BasePanel {
     public JLabel unitLabel_7;
     public JLabel unitLabel_8;
     public JLabel unitLabel_9;
-
-    private JLabel pointSelectedUnit = new JLabel(new ImageIcon(BasePanel.class.getResource("./image/selectPoint.png")));
+    private JPanel cardsPanel;
+    private JLabel pointSelectedUnit;
 
     public UnitAdminPanel(){
         super();
+    }
+
+    public UnitAdminPanel(JPanel cardsPanel){
+        super();
+        this.cardsPanel = cardsPanel;
+        addAction();
     }
 
     @Override
@@ -45,9 +52,11 @@ public class UnitAdminPanel extends BasePanel {
         finishButton.setBounds(800,15,150,100);
         finishButton.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(finishButton);
-
+        /*
+        pointSelectedUnit = new JLabel(new ImageIcon(BasePanel.class.getResource("./image/selectPoint.png")));
         pointSelectedUnit.setBounds(30, 15, 400, 150);
         this.add(pointSelectedUnit);
+        */
 
         upgradeButton_1 =new JButton("업그레이드\n  500G");
         upgradeButton_1.setBounds(30,250,150,100);
@@ -74,6 +83,21 @@ public class UnitAdminPanel extends BasePanel {
         upgradeButton_2.addActionListener(actionListener);
         upgradeButton_3.addActionListener(actionListener);
 
+    }
+
+    @Override
+    protected void addAction() {
+
+        ActionListener actionListener = e -> {
+            Object source = e.getSource();
+            if (source.equals(finishButton)) {
+                ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "StagePanel");
+            }else{
+                ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "IngamePanel");
+            }
+        };
+
+        addActionListener(actionListener);
     }
 
     @Override
