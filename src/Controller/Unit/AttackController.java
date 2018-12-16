@@ -9,7 +9,7 @@ public class AttackController implements Runnable {
     public static ArrayList<BaseUnit> unitList = new ArrayList<BaseUnit>();
     private boolean isPlaying = false;
 
-    public PlayController(){
+    public AttackController(){
 
     }
 
