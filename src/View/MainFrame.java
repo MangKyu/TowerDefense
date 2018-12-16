@@ -37,7 +37,7 @@ public class MainFrame extends JFrame {
         stagePanel = new StagePanel(cardsPanel);
         cardsPanel.add(stagePanel, "StagePanel");
 
-        ingamePanel = new IngamePanel(cardsPanel);
+        ingamePanel = new IngamePanel(cardsPanel,mainController);
         cardsPanel.add(ingamePanel, "IngamePanel");
 
         unitAdminPanel = new UnitAdminPanel(cardsPanel);
