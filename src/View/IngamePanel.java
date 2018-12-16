@@ -60,7 +60,7 @@ public class IngamePanel extends BasePanel {
 
         this.setVisible(true);
     }
-
+    
     @Override
     public void update(PlayerInfo playerInfo) {
         System.out.println("Player Info is updated");
