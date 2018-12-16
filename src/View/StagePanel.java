@@ -20,14 +20,12 @@ public class StagePanel extends BasePanel {
     private JPanel cardsPanel;
     private Thread playThread;
     private Thread enemyThread;
-    private MainController mainController;
     private EnemyController enemyController;
 
-    public StagePanel(JPanel cardsPanel, MainController mainController) {
+    public StagePanel(JPanel cardsPanel) {
         super();
         this.cardsPanel = cardsPanel;
-        this.mainController = mainController;
-        playThread = new Thread(mainController.getAttackController());
+        playThread = new Thread(MainController.getInstance().getAttackController());
         addAction();
     }
 
@@ -98,7 +96,7 @@ public class StagePanel extends BasePanel {
                 }
                 enemyController = new EnemyController(5);
                 ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "IngamePanel");
-                mainController.getAttackController().setIsPlaying(true);
+                MainController.getInstance().getAttackController().setIsPlaying(true);
                 enemyController.setIsPlaying(true);
                 enemyThread = new Thread(enemyController);
                 playThread.start();

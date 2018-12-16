@@ -11,7 +11,6 @@ public class EnemyController implements Runnable {
     private boolean isPlaying;
     private UnitFactory unitFactory;
     private int stageNum;
-    private int positionX = 800;
 
     public EnemyController(int stageNum) {
         this.stageNum = stageNum;
@@ -32,22 +31,22 @@ public class EnemyController implements Runnable {
             int num = random.nextInt(6);
             switch (num) {
                 case 0:
-                    unitFactory.produceUnit("UNIT_A", stageNum, true,positionX);
+                    unitFactory.produceUnit("UNIT_A", stageNum, true);
                     break;
                 case 1:
-                    unitFactory.produceUnit("UNIT_B", stageNum, true,positionX);
+                    unitFactory.produceUnit("UNIT_B", stageNum, true);
                     break;
                 case 2:
-                    unitFactory.produceUnit("UNIT_C", stageNum, true,positionX);
+                    unitFactory.produceUnit("UNIT_C", stageNum, true);
                     break;
                 case 3:
-                    unitFactory.produceUnit("UNIT_D", stageNum, true,positionX);
+                    unitFactory.produceUnit("UNIT_D", stageNum, true);
                     break;
                 case 4:
-                    unitFactory.produceUnit("UNIT_E", stageNum, true,positionX);
+                    unitFactory.produceUnit("UNIT_E", stageNum, true);
                     break;
                 case 5:
-                    unitFactory.produceUnit("UNIT_F", stageNum, true,positionX);
+                    unitFactory.produceUnit("UNIT_F", stageNum, true);
                     break;
             }
 

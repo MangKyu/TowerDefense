@@ -8,8 +8,8 @@ public class UnitF extends BaseUnit {
     final static int baseSpeed = 5;
     final static int baseCost = 100;
 
-    public UnitF(int level,boolean teamInfo,int positionX) {
-        super(positionX);
+    public UnitF(int level,boolean teamInfo) {
+        super();
         this.unitId = "UNIT_F";
         InitUnit(level, teamInfo);
         th = new Thread(this);

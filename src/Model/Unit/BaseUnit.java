@@ -29,8 +29,7 @@ public abstract class BaseUnit implements Runnable {
     Thread th;
 
 
-    public BaseUnit(int positionX) {
-        this.positionX = positionX;
+    public BaseUnit() {
         lock.lock();
         try {
             id = commonId;
