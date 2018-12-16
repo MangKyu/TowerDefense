@@ -10,7 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class SignUpPanel extends BasePanel{
-    public JButton signInButton;
+    public JButton cancelButton;
     public JButton signUpButton;
     public JTextField idField;
     public JPasswordField pwField;
@@ -54,6 +54,11 @@ public class SignUpPanel extends BasePanel{
         pwField.setVisible(true);
         this.add(pwField);
 
+        this.cancelButton = new JButton("cancel");
+        cancelButton.setBounds(200, 600, 200, 60);
+        cancelButton.setVisible(true);
+        this.add(cancelButton);
+
         this.signUpButton = new JButton("Sign Up");
         signUpButton.setBounds(600, 600, 200, 60);
         signUpButton.setVisible(true);
@@ -88,6 +93,8 @@ public class SignUpPanel extends BasePanel{
                 } else {
                     JOptionPane.showMessageDialog(null, "existing ID");
                 }
+            } else if(source.equals(cancelButton)) {
+                ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "LoginPanel");
             }
         };
 
