@@ -23,13 +23,14 @@ public abstract class BaseUnit implements Runnable {
     boolean isAlive = true;
     boolean isAttack = false;
     int cost;
-    int positionX = 150;
+    int positionX;
     int positionY = 500;
     public final static int attackRange = 15;
     Thread th;
 
 
-    public BaseUnit() {
+    public BaseUnit(int positionX) {
+        this.positionX = positionX;
         lock.lock();
         try {
             id = commonId;
@@ -40,15 +41,20 @@ public abstract class BaseUnit implements Runnable {
         }
     }
 
-    public int getId(){
+    public int getId() {
         return this.id;
     }
+
     public void attack() {
         AttackController.InflictDamage(this.id, this.power);
     }
 
     public void move() {
-        this.positionX += this.speed;
+        if (teamInfo == false) {
+            this.positionX += this.speed;
+        } else {
+            this.positionX -= this.speed;
+        }
     }
 
     public void setIsAttack(boolean isAttack) {

@@ -1,5 +1,6 @@
 package View;
 
+import Controller.EnemyController;
 import Controller.MainController;
 import Model.Player.PlayerInfo;
 
@@ -18,9 +19,11 @@ public class StagePanel extends BasePanel {
     public JButton stage5Button;
     private JPanel cardsPanel;
     private Thread playThread;
+    private Thread enemyThread;
     private MainController mainController;
+    private EnemyController enemyController;
 
-    public StagePanel(JPanel cardsPanel, MainController mainController){
+    public StagePanel(JPanel cardsPanel, MainController mainController) {
         super();
         this.cardsPanel = cardsPanel;
         this.mainController = mainController;
@@ -29,37 +32,37 @@ public class StagePanel extends BasePanel {
     }
 
     @Override
-    protected void initComponents(){
+    protected void initComponents() {
         this.setLayout(null);
         this.setSize(1000, 1000);
 
-        unitAdminButton =new JButton("내 유닛 관리");
-        unitAdminButton.setBounds(30,15,150,100);
+        unitAdminButton = new JButton("내 유닛 관리");
+        unitAdminButton.setBounds(30, 15, 150, 100);
         unitAdminButton.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(unitAdminButton);
 
-        stage1Button =new JButton("stage 1");
-        stage1Button.setBounds(30,425,150,100);
+        stage1Button = new JButton("stage 1");
+        stage1Button.setBounds(30, 425, 150, 100);
         stage1Button.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(stage1Button);
 
-        stage2Button =new JButton("stage 2");
-        stage2Button.setBounds(210,425,150,100);
+        stage2Button = new JButton("stage 2");
+        stage2Button.setBounds(210, 425, 150, 100);
         stage2Button.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(stage2Button);
 
-        stage3Button =new JButton("stage 3");
-        stage3Button.setBounds(390,425,150,100);
+        stage3Button = new JButton("stage 3");
+        stage3Button.setBounds(390, 425, 150, 100);
         stage3Button.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(stage3Button);
 
-        stage4Button=new JButton("stage 4");
-        stage4Button.setBounds(570,425,150,100);
+        stage4Button = new JButton("stage 4");
+        stage4Button.setBounds(570, 425, 150, 100);
         stage4Button.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(stage4Button);
 
-        stage5Button=new JButton("stage 5");
-        stage5Button.setBounds(750,425,150,100);
+        stage5Button = new JButton("stage 5");
+        stage5Button.setBounds(750, 425, 150, 100);
         stage5Button.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(stage5Button);
 
@@ -82,10 +85,18 @@ public class StagePanel extends BasePanel {
             Object source = e.getSource();
             if (source.equals(unitAdminButton)) {
                 ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "UnitAdminPanel");
-            }else{
+            } else if (source.equals(stage1Button)) {
                 ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "IngamePanel");
                 mainController.getAttackController().setIsPlaying(true);
-                playThread.start();;
+                playThread.start();
+                ;
+            } else if (source.equals(stage2Button)) {
+
+            } else if (source.equals(stage3Button)) {
+
+            } else if (source.equals(stage4Button)) {
+
+            } else if (source.equals(stage5Button)) {
             }
         };
 
