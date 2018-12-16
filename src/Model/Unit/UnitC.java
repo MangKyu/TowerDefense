@@ -11,14 +11,11 @@ public class UnitC extends BaseUnit {
         super();
         this.unitId = "UNIT_C";
         InitUnit(level, teamInfo);
-        run();
+        th = new Thread(this);
+        th.start();
     }
 
-    @Override
-    public void attack() {
-        //super.attack();
-        System.out.println("UnitA Attack");
-    }
+
 
     public void InitUnit(int level, boolean teamInfo) {
         int tempHp;

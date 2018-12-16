@@ -12,12 +12,8 @@ public class UnitF extends BaseUnit {
         super();
         this.unitId = "UNIT_F";
         InitUnit(level, teamInfo);
-    }
-
-    @Override
-    public void attack() {
-        //super.attack();
-        System.out.println("UnitA Attack");
+        th = new Thread(this);
+        th.start();
     }
 
     public void InitUnit(int level, boolean teamInfo) {

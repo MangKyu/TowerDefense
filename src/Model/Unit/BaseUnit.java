@@ -26,6 +26,7 @@ public abstract class BaseUnit implements Runnable {
     int positionX = 150;
     int positionY = 500;
     public final static int attackRange = 15;
+    Thread th;
 
 
     public BaseUnit() {
