@@ -12,7 +12,6 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.io.File;
 
-
 public class IngamePanel extends BasePanel {
 
     public JButton cancelButton;
@@ -136,13 +135,10 @@ public class IngamePanel extends BasePanel {
 
             } else if (source.equals(summon1Button)) {
                 addUnit(0);
-
             } else if (source.equals(summon2Button)) {
                 addUnit(1);
-
             } else if (source.equals(summon3Button)) {
                 addUnit(2);
-
             } else if (source.equals(summon4Button)) {
                 addUnit(3);
             } else if (source.equals(cancelButton)) {
