@@ -21,4 +21,9 @@ public abstract class BasePanel extends JPanel implements Observer {
 
     protected abstract void addAction();
 
+    protected void makeTransparent(JButton jButton){
+        jButton.setOpaque(false);
+        jButton.setContentAreaFilled(false);
+        jButton.setBorderPainted(false);
+    }
 }
