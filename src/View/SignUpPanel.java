@@ -19,11 +19,13 @@ public class SignUpPanel extends BasePanel{
     private JPanel cardsPanel;
 
     public SignUpPanel() {
-        super();
+        super(MainController.getInstance().getPlayerController());
+        MainController.getInstance().getPlayerController().add(this);
     }
 
     public SignUpPanel(JPanel cardsPanel) {
-        super();
+        super(MainController.getInstance().getPlayerController());
+        MainController.getInstance().getPlayerController().add(this);
         this.cardsPanel = cardsPanel;
         addAction();
     }
