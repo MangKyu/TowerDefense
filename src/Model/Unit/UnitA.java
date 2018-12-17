@@ -17,7 +17,7 @@ public class UnitA extends BaseUnit {
         if (teamInfo) {
             System.out.println("Enemy A IS CREATED");
         } else {
-            System.out.println("A IS CREATED");
+            System.out.println("PLAYER A IS CREATED");
         }
     }
 

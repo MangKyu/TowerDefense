@@ -111,6 +111,8 @@ public class StagePanel extends BasePanel {
 
                 System.out.println("----------- G A M E     S T A R T ! -----------");
                 ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "IngamePanel");
+                MainController.getInstance().getPlayerController().getPlayerInfo().setHp(1000);
+                MainController.getInstance().getPlayerController().getPlayerInfo().setMp(1500);
                 playThread = new Thread(MainController.getInstance().getAttackController());
                 enemyThread = new Thread(enemyController);
                 MainController.getInstance().getAttackController().setIsPlaying(true);

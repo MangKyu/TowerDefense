@@ -290,7 +290,7 @@ public class UnitAdminPanel extends BasePanel {
 
     private void addUnit(String unitId, boolean teamFlag) {
         int levelInfo = MainController.getInstance().getPlayerController().getPlayerInfo().getUserInfo().getUnitLevel(unitId);
-        BaseUnit unit = MainController.getInstance().getUnitController().produceUnit(unitId, levelInfo, true);
+        BaseUnit unit = MainController.getInstance().getUnitController().produceUnit(unitId, levelInfo, false);
         boolean duplicatedFlag = MainController.getInstance().getPlayerController().addUnit(unit);
         if (duplicatedFlag) {
             JOptionPane.showMessageDialog(null, "Duplicated Unit is Selected");

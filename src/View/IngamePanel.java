@@ -1,6 +1,7 @@
 package View;
 
 import Controller.EnemyController;
+import Controller.Main;
 import Controller.MainController;
 import Controller.Strategy.SkillStrategyA;
 import Controller.Strategy.SkillStrategyB;
@@ -9,6 +10,7 @@ import Model.Unit.BaseUnit;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.plaf.synth.SynthTextAreaUI;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.io.Console;
@@ -132,14 +134,6 @@ public class IngamePanel extends BasePanel {
                 }
                 playerInfo.setSkillFlag(!skillFlag);
 
-            } else if (source.equals(summon1Button)) {
-                addUnit(0);
-            } else if (source.equals(summon2Button)) {
-                addUnit(1);
-            } else if (source.equals(summon3Button)) {
-                addUnit(2);
-            } else if (source.equals(summon4Button)) {
-                addUnit(3);
             } else if (source.equals(cancelButton)) {
                 ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "StagePanel");
                 StagePanel.playThread.interrupt();
@@ -147,20 +141,36 @@ public class IngamePanel extends BasePanel {
                 MainController.getInstance().getAttackController().setIsPlaying(false);
                 EnemyController.isPlaying = false;
                 System.out.println("----------- G A M E     E N D -----------");
+            } else {
+                int mp = MainController.getInstance().getPlayerController().getPlayerInfo().getMp();
+                int cost = 0;
+                if (source.equals(summon1Button)) {
+                      cost = addUnit(0);
+                } else if (source.equals(summon2Button)) {
+                    cost = addUnit(1);
+                } else if (source.equals(summon3Button)) {
+                    cost = addUnit(2);
+                } else if (source.equals(summon4Button)) {
+                   cost =  addUnit(3);
+                }
+                MainController.getInstance().getPlayerController().getPlayerInfo().setMp(mp-cost);
+                System.out.println("PLAYER MP : " + MainController.getInstance().getPlayerController().getPlayerInfo().getMp());
             }
-
         };
 
         addActionListener(actionListener);
 
     }
 
-    private void addUnit(int index) {
+    private int addUnit(int index) {
         BaseUnit unit = MainController.getInstance().getPlayerController().getUnitByIndex(index);
+       int mp = 0;
         if (unit != null) {
+            mp = unit.getCost();
             int unitLevel = MainController.getInstance().getPlayerController().getPlayerInfo().getUserInfo().getUnitLevel(unit.getUnitId());
             BaseUnit newUnit = MainController.getInstance().getUnitController().produceUnit(unit.getUnitId(), unitLevel, false);
             MainController.getInstance().getAttackController().addUnit(newUnit);
         }
+        return mp;
     }
 }
