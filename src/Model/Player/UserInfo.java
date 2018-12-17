@@ -1,15 +1,15 @@
 package Model.Player;
 
-import Model.Unit.*;
-
-import java.util.Map;
-
 public class UserInfo {
     private String id;
     private String pw;
     private int money;
     private int score;
     private LevelInfo levelInfo;
+
+    public UserInfo() {
+        this.money = 0;
+    }
 
     public UserInfo(String id, String pw) {
         this.id = id;
@@ -24,6 +24,7 @@ public class UserInfo {
         this.score = score;
         levelInfo = new LevelInfo();
     }
+
     public String getId() {
         return id;
     }
@@ -64,7 +65,7 @@ public class UserInfo {
         this.levelInfo = levelInfo;
     }
 
-    public int getUnitLevel(String unitId){
+    public int getUnitLevel(String unitId) {
         int unitLevel = -1;
         switch (unitId) {
             case "UNIT_A":
@@ -89,6 +90,31 @@ public class UserInfo {
                 break;
         }
         return unitLevel;
+    }
+
+    public void setUnitLevel(String unitId) {
+        switch (unitId) {
+            case "UNIT_A":
+                levelInfo.setUnitALevel(levelInfo.getUnitALevel() + 1);
+                break;
+            case "UNIT_B":
+                levelInfo.setUnitBLevel(levelInfo.getUnitBLevel() + 1);
+                break;
+            case "UNIT_C":
+                levelInfo.setUnitCLevel(levelInfo.getUnitCLevel() + 1);
+                break;
+            case "UNIT_D":
+                levelInfo.setUnitDLevel(levelInfo.getUnitDLevel() + 1);
+                break;
+            case "UNIT_E":
+                levelInfo.setUnitELevel(levelInfo.getUnitELevel() + 1);
+                break;
+            case "UNIT_F":
+                levelInfo.setUnitFLevel(levelInfo.getUnitFLevel() + 1);
+                break;
+            default:
+                break;
+        }
     }
 
 }

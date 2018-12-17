@@ -1,13 +1,11 @@
 package Controller.Database;
 
-import Model.Player.LevelInfo;
 import Model.Player.UserInfo;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.List;
@@ -64,7 +62,4 @@ public class UserDAO {
         return result;
     }
 
-    public LevelInfo retrieveLevelInfo(UserInfo userInfo) {
-        return session.selectOne(namespace+"retrieveLevelInfo", userInfo);
-    }
 }

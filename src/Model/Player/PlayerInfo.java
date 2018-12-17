@@ -9,6 +9,10 @@ public class PlayerInfo {
     private SkillStrategy skillStrategy;
     private boolean skillFlag;
 
+    public PlayerInfo() {
+        this.userInfo = new UserInfo();
+    }
+
     public int getHp() {
         return hp;
     }
