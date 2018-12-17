@@ -1,18 +1,14 @@
 package Model.Unit;
 
-import Controller.PlayerController;
 import Controller.Unit.AttackController;
 
 import javax.swing.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-
-public abstract class BaseUnit implements Runnable {
+public abstract class BaseUnit extends JLabel implements Runnable {
     private final Lock lock = new ReentrantLock(true);
-    //UNIT A B C D E F HAS DIFFERENT UNITID
     String unitId;
-    //VARIABLE FOR ID INITIALIZE. NEED TO BE LOCKED BEFORE INITIALIZE
     static int commonId = 0;
     //Every UNIT HAS SPECIFIC ID THOUGH SOME UNITS HAVE COMMON UNITID
     int id;
@@ -27,12 +23,10 @@ public abstract class BaseUnit implements Runnable {
     int positionX;
     int positionY = 500;
     public final static int attackRange = 15;
-    Thread th;
-    JLabel label;
-    ImageIcon icon;
 
-
-    public BaseUnit() {
+    public BaseUnit(String unitId) {
+        this.unitId = unitId;
+        this.speed = 10;
         lock.lock();
         try {
             id = commonId;
@@ -43,9 +37,7 @@ public abstract class BaseUnit implements Runnable {
         }
     }
 
-    public JLabel getLabel(){
-        return this.label;
-    }
+    public abstract void initUnit(int level, boolean teamInfo);
 
     public int getId() {
         return this.id;
@@ -127,9 +119,6 @@ public abstract class BaseUnit implements Runnable {
         return this.cost;
     }
 
-    public void InitUnit(int level, boolean teamInfo) {
-    }
-
     public boolean AliveDetection() {
         if (this.hp <= 0) {
             this.isAlive = false;
@@ -146,6 +135,7 @@ public abstract class BaseUnit implements Runnable {
                 try {
                     Thread.sleep(500);
                 } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -155,7 +145,4 @@ public abstract class BaseUnit implements Runnable {
         return unitId;
     }
 
-    public void setUnitId(String unitId) {
-        this.unitId = unitId;
-    }
 }

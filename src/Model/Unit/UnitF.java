@@ -1,21 +1,30 @@
 package Model.Unit;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+
 public class UnitF extends BaseUnit {
 
-    final static int baseHp = 100;
-    final static int basePower = 10;
-    final static int baseLevel = 1;
-    final static int baseSpeed = 5;
-    final static int baseCost = 100;
+    final int baseHp = 100;
+    final int basePower = 10;
+    final int baseLevel = 1;
+    final int baseSpeed = 5;
+    final int baseCost = 100;
+
+    public UnitF() {
+        super("UNIT_F");
+    }
 
     public UnitF(int level, boolean teamInfo) {
-        super();
-        this.unitId = "UNIT_F";
-        InitUnit(level, teamInfo);
+        super("UNIT_F");
+        initUnit(level, teamInfo);
         System.out.println("F IS CREATED");
     }
 
-    public void InitUnit(int level, boolean teamInfo) {
+    @Override
+    public void initUnit(int level, boolean teamInfo) {
         int tempHp;
         int tempPower;
 
@@ -32,6 +41,16 @@ public class UnitF extends BaseUnit {
         this.hp = tempHp;
         this.teamInfo = teamInfo;
         this.cost = baseCost;
+
+        BufferedImage unitImage = null;
+        try {
+            unitImage = ImageIO.read(new File("./img/Unit_Warrior.JPG"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        this.setIcon(new ImageIcon(unitImage));
+        this.setBounds(positionX, 350, 94, 95);
+        this.setVisible(true);
 
     }
 }
