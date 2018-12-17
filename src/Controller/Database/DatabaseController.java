@@ -6,22 +6,24 @@ public class DatabaseController {
     private static DatabaseController instance;
     //private ArrayList<UserDatabase> databaseList;
     private ArrayList<UserDAO> userDAOList;
+    private ArrayList<LevelDAO> levelDAOList;
     private final int poolSize = 5;
-    private int count;
+    private int userDAOcount;
+    private int levelDAOCount;
 
     public DatabaseController(){
-        //databaseList = new ArrayList<>();
-        /*
-        for(int i = 0 ; i < poolSize; i++){
-            databaseList.add(new UserDatabase());
-        }
-        */
-        count = 0;
         userDAOList = new ArrayList<>();
         for(int i = 0 ; i < poolSize; i++){
             userDAOList.add(new UserDAO());
         }
-        count = poolSize;
+
+        levelDAOList = new ArrayList<>();
+        for(int i = 0 ; i < poolSize; i++){
+            levelDAOList.add(new LevelDAO());
+        }
+
+        levelDAOCount = poolSize;
+        userDAOcount = poolSize;
     }
 
     public static DatabaseController getInstance(){
@@ -34,17 +36,33 @@ public class DatabaseController {
     public UserDAO acquireUserDAO(){
         UserDAO userDAO = null;
         if(userDAOList.size() > 0){
-            userDAO = userDAOList.remove(count-1);
-            count--;
+            userDAO = userDAOList.remove(userDAOcount-1);
+            userDAOcount--;
         }
         return userDAO;
     }
 
-
-    public void releaseDatabase(UserDAO userDAO){
-        if(count < poolSize){
+    public void releaseUserDAO(UserDAO userDAO){
+        if(userDAOcount < poolSize){
             userDAOList.add(userDAO);
-            count++;
+            userDAOcount++;
         }
     }
+
+    public LevelDAO acquireLevelDAO(){
+        LevelDAO levelDAO = null;
+        if(levelDAOList.size() > 0){
+            levelDAO = levelDAOList.remove(levelDAOCount-1);
+            levelDAOCount--;
+        }
+        return levelDAO;
+    }
+
+    public void releaseLevelDAO(LevelDAO levelDAO){
+        if(levelDAOCount < poolSize){
+            levelDAOList.add(levelDAO);
+            levelDAOCount++;
+        }
+    }
+
 }
