@@ -44,7 +44,7 @@ public class UnitF extends BaseUnit {
 
         BufferedImage unitImage = null;
         try {
-            unitImage = ImageIO.read(new File("./img/Unit_Warrior.JPG"));
+            unitImage = ImageIO.read(new File("./img/Unit_Warrior.png"));
         } catch (Exception e) {
             e.printStackTrace();
         }

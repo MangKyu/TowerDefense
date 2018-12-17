@@ -290,7 +290,6 @@ public class UnitAdminPanel extends BasePanel {
 
     private void addUnit(String unitId) {
         int levelInfo = MainController.getInstance().getPlayerController().getPlayerInfo().getUserInfo().getUnitLevel(unitId);
-        //BaseUnit unit = MainController.getInstance().getUnitController().produceUnit(unitId);
         BaseUnit unit = MainController.getInstance().getUnitController().produceUnit(unitId, levelInfo, false);
         boolean duplicatedFlag = MainController.getInstance().getPlayerController().addUnit(unit);
         if (duplicatedFlag) {

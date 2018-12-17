@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class AttackController implements Runnable {
 
-    public static ArrayList<BaseUnit> unitList = new ArrayList<BaseUnit>();
+    public static ArrayList<BaseUnit> unitList;
     private boolean isPlaying = false;
 
     public AttackController(){
@@ -23,9 +23,10 @@ public class AttackController implements Runnable {
     }
     public void run() {
         while (isPlaying) {
+            unitList = new ArrayList<BaseUnit>();
             BaseUnit b1;
             BaseUnit b2;
-            if (unitList.size() != 0) {
+            if (unitList.size() >=2) {
                 for (int i = 0; i < unitList.size(); i++) {
                     b1 = unitList.get(i);
                     int enemyNum = 0;
@@ -33,7 +34,7 @@ public class AttackController implements Runnable {
                         b2 = unitList.get(j);
                         if ((b1.getTeamInfo() != b2.getTeamInfo()) &&
                                 !b1.getIsAttack() && !b2.getIsAttack() &&
-                                (Math.abs(b1.getX() - b2.getX()) <= BaseUnit.attackRange)) {
+                                (Math.abs(b1.getX() - b2.getX()) <= 15)) {
                             enemyNum += 1;
                         }
                         if (enemyNum > 0) {
@@ -66,7 +67,7 @@ public class AttackController implements Runnable {
             opponent = unitList.get(i);
             if (id != opponent.getId() &&
                     attacker.getTeamInfo() != opponent.getTeamInfo() &&
-                    (Math.abs(attacker.getX() - opponent.getX()) <= BaseUnit.attackRange)) {
+                    (Math.abs(attacker.getX() - opponent.getX()) <= 15)) {
                 opponent.setHp(opponent.getHp() - power);
             }
         }

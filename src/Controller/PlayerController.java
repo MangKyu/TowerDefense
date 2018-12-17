@@ -49,6 +49,10 @@ public class PlayerController implements PlayerObserver {
         this.playerInfo = playerInfo;
     }
 
+    public void updatePlayerInfo() {
+        notifyObservers();
+    }
+
     public void updatePlayerInfo(PlayerInfo playerInfo) {
         this.playerInfo = playerInfo;
         notifyObservers();

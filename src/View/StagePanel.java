@@ -1,6 +1,5 @@
 package View;
 
-import Controller.EnemyController;
 import Controller.MainController;
 import Model.Player.PlayerInfo;
 
@@ -20,25 +19,22 @@ public class StagePanel extends BasePanel {
     public JButton stage4Button;
     public JButton stage5Button;
     private JPanel cardsPanel;
-    private Thread playThread;
-    private Thread enemyThread;
-    private EnemyController enemyController;
-
-    public Image bgImage;
 
     public StagePanel(JPanel cardsPanel) {
         super(MainController.getInstance().getPlayerController());
         MainController.getInstance().getPlayerController().add(this);
         this.cardsPanel = cardsPanel;
-        playThread = new Thread(MainController.getInstance().getAttackController());
         addAction();
     }
 
     @Override
     public void paintComponent(Graphics g) {
+        Image bgImage = null;
         try{
             bgImage = ImageIO.read(new File("./img/bgImage.png"));
-        }catch (Exception e) {}
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
         g.drawImage(bgImage, 0, 0, 1000, 1000,null);
     }
 
@@ -97,25 +93,22 @@ public class StagePanel extends BasePanel {
             if (source.equals(unitAdminButton)) {
                 ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "UnitAdminPanel");
             } else {
+                int stageNum = 0;
                 if (source.equals(stage1Button)) {
-                    enemyController = new EnemyController(1);
+                    stageNum = 1;
                 } else if (source.equals(stage2Button)) {
-                    enemyController = new EnemyController(2);
+                    stageNum = 2;
                 } else if (source.equals(stage3Button)) {
-                    enemyController = new EnemyController(3);
+                    stageNum = 3;
                 } else if (source.equals(stage4Button)) {
-                    enemyController = new EnemyController(4);
+                    stageNum = 4;
                 } else if (source.equals(stage5Button)) {
-                    enemyController = new EnemyController(5);
+                    stageNum = 5;
                 }
+
                 ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "IngamePanel");
-                /*
-                MainController.getInstance().getAttackController().setIsPlaying(true);
-                enemyController.setIsPlaying(true);
-                enemyThread = new Thread(enemyController);
-                playThread.start();
-                enemyThread.start();
-                */
+                ((IngamePanel)cardsPanel.getComponent(3)).startGame(stageNum);
+
             }
         };
 

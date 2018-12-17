@@ -10,6 +10,8 @@ public class PlayerInfo {
     private boolean skillFlag;
 
     public PlayerInfo() {
+        this.hp = 1000;
+        this.mp = 1000;
         this.userInfo = new UserInfo();
     }
 

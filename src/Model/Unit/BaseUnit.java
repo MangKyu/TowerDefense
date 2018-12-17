@@ -22,10 +22,11 @@ public abstract class BaseUnit extends JLabel implements Runnable {
     int cost;
     int positionX;
     int positionY = 500;
-    public final static int attackRange = 15;
+    private int attackRange;
 
     public BaseUnit(String unitId) {
         this.unitId = unitId;
+        this.attackRange = 15;
         this.speed = 10;
         lock.lock();
         try {
@@ -145,4 +146,11 @@ public abstract class BaseUnit extends JLabel implements Runnable {
         return unitId;
     }
 
+    public int getAttackRange() {
+        return attackRange;
+    }
+
+    public void setAttackRange(int attackRange) {
+        this.attackRange = attackRange;
+    }
 }

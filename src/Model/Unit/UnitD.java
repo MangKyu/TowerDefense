@@ -42,7 +42,7 @@ public class UnitD extends BaseUnit {
 
         BufferedImage unitImage = null;
         try {
-            unitImage = ImageIO.read(new File("./img/Unit_Priest.JPG"));
+            unitImage = ImageIO.read(new File("./img/Unit_Priest.png"));
         } catch (Exception e) {
             e.printStackTrace();
         }

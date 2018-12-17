@@ -1,5 +1,6 @@
 package View;
 
+import Controller.EnemyController;
 import Controller.MainController;
 import Controller.Strategy.SkillStrategyA;
 import Controller.Strategy.SkillStrategyB;
@@ -24,6 +25,9 @@ public class IngamePanel extends BasePanel implements ActionListener{
     public JButton summon4Button;
     private JPanel cardsPanel;
     private Timer timer;
+    private Thread playThread;
+    private Thread enemyThread;
+    private EnemyController enemyController;
 
     public IngamePanel(JPanel cardsPanel) {
         super(MainController.getInstance().getPlayerController());
@@ -31,7 +35,6 @@ public class IngamePanel extends BasePanel implements ActionListener{
         this.cardsPanel = cardsPanel;
         this.timer = new Timer(1000, this);
         addAction();
-        //startTimer();
     }
 
     @Override
@@ -44,16 +47,15 @@ public class IngamePanel extends BasePanel implements ActionListener{
         }
         g.drawImage(bgImage, 0, 0, 1000, 1000, null);
 
+        int hp = MainController.getInstance().getPlayerController().getPlayerInfo().getHp();
+        int mp = MainController.getInstance().getPlayerController().getPlayerInfo().getMp();
         g.setColor(Color.RED);
         g.fillRect(700, 850, 250, 25);
         g.setColor(Color.BLUE);
         g.fillRect(700, 900, 250, 25);
-        g.setColor(Color.BLACK);
+        g.setColor(Color.WHITE);
         g.drawRect(700, 850, 250, 25);
         g.drawRect(700, 900, 250, 25);
-
-        MainController.getInstance().getAttackController().setIsPlaying(true);
-        startTimer();
     }
 
     @Override
@@ -101,11 +103,6 @@ public class IngamePanel extends BasePanel implements ActionListener{
     }
 
     @Override
-    public void update(PlayerInfo playerInfo) {
-        System.out.println("Player Info is updated");
-    }
-
-    @Override
     public void addActionListener(ActionListener actionListener) {
         cancelButton.addActionListener(actionListener);
         pauseButton.addActionListener(actionListener);
@@ -130,18 +127,26 @@ public class IngamePanel extends BasePanel implements ActionListener{
                 }
                 playerInfo.setSkillFlag(!skillFlag);
 
-            } else if (source.equals(summon1Button)) {
-                addUnit(0);
-            } else if (source.equals(summon2Button)) {
-                addUnit(1);
-            } else if (source.equals(summon3Button)) {
-                addUnit(2);
-            } else if (source.equals(summon4Button)) {
-                addUnit(3);
             } else if (source.equals(cancelButton)) {
                 MainController.getInstance().getAttackController().setIsPlaying(false);
+                EnemyController.isPlaying = false;
                 stopTimer();
                 ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "StagePanel");
+
+            } else {
+                int index;
+                if (source.equals(summon1Button)) {
+                      index = 0;
+                } else if (source.equals(summon2Button)) {
+                    index = 1;
+                } else if (source.equals(summon3Button)) {
+                    index = 2;
+                } else if (source.equals(summon4Button)) {
+                    index = 3;
+                }else{
+                    index = 0;
+                }
+                addUnit(index);
             }
         };
 
@@ -151,23 +156,42 @@ public class IngamePanel extends BasePanel implements ActionListener{
 
     private void addUnit(int index) {
         BaseUnit unit = MainController.getInstance().getPlayerController().getUnitByIndex(index);
-        if (unit != null) {
+        int mp = MainController.getInstance().getPlayerController().getPlayerInfo().getMp() - unit.getCost();
+        if (unit != null && mp >= 0) {
             int unitLevel = MainController.getInstance().getPlayerController().getPlayerInfo().getUserInfo().getUnitLevel(unit.getUnitId());
             BaseUnit newUnit = MainController.getInstance().getUnitController().produceUnit(unit.getUnitId(), unitLevel, false);
             MainController.getInstance().getAttackController().addUnit(newUnit);
             this.add(newUnit);
+            MainController.getInstance().getPlayerController().getPlayerInfo().setMp(mp);
+            MainController.getInstance().getPlayerController().updatePlayerInfo();
+
             Thread t = new Thread(newUnit);
             t.start();
             repaint();
         }
     }
 
-    private void startTimer(){
+    protected void startGame(int stageNum){
+        MainController.getInstance().getPlayerController().getPlayerInfo().setHp(1000);
+        MainController.getInstance().getPlayerController().getPlayerInfo().setMp(1500);
+        enemyController = new EnemyController(this, stageNum);
+
+        playThread = new Thread(MainController.getInstance().getAttackController());
+        enemyThread = new Thread(enemyController);
+        MainController.getInstance().getAttackController().setIsPlaying(true);
+        enemyController.setIsPlaying(true);
+        enemyThread = new Thread(enemyController);
+        playThread.start();
+        enemyThread.start();
         timer.start();
     }
 
     private void stopTimer(){
         timer.stop();
+    }
+
+    @Override
+    public void update(PlayerInfo playerInfo) {
     }
 
     @Override

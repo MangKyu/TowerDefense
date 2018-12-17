@@ -3,21 +3,23 @@ package Controller;
 import Controller.Unit.UnitFactory;
 import Model.Unit.BaseUnit;
 
+import javax.swing.*;
 import java.util.Random;
 
 public class EnemyController implements Runnable {
 
     private int mp = 1500;
     private Random random;
-    private boolean isPlaying;
+    public static boolean isPlaying;
     private UnitFactory unitFactory;
     private int stageNum;
+    private JPanel ingamePanel;
 
-    public EnemyController(int stageNum) {
+    public EnemyController(JPanel ingamePanel, int stageNum) {
+        this.ingamePanel = ingamePanel;
         this.stageNum = stageNum;
         this.mp += stageNum * 100;
         this.isPlaying = false;
-        isPlaying = false;
         random = new Random();
         unitFactory = new UnitFactory();
     }
@@ -52,11 +54,15 @@ public class EnemyController implements Runnable {
                     break;
             }
             MainController.getInstance().getAttackController().addUnit(base);
+            ingamePanel.add(base);
+            Thread t = new Thread(base);
+            t.start();
 
             this.mp -= 100;
             try {
                 Thread.sleep(new Random().nextInt(2000) + 2000);
             } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
     }
