@@ -11,8 +11,7 @@ public class UnitC extends BaseUnit {
         super();
         this.unitId = "UNIT_C";
         InitUnit(level, teamInfo);
-        th = new Thread(this);
-        th.start();
+        System.out.println("C IS CREATED");
     }
 
 
