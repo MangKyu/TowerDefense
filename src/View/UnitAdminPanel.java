@@ -36,10 +36,10 @@ public class UnitAdminPanel extends BasePanel {
     public JLabel moneyLabel;
     public JLabel userMoneyLabel;
 
-    public JLabel pointSelectedUnit_1;
-    public JLabel pointSelectedUnit_2;
-    public JLabel pointSelectedUnit_3;
-    public JLabel pointSelectedUnit_4;
+    public JLabel SelectedUnit_1;
+    public JLabel SelectedUnit_2;
+    public JLabel SelectedUnit_3;
+    public JLabel SelectedUnit_4;
 
     private BufferedImage unitImage;
     public Image entryArrow;
@@ -65,7 +65,6 @@ public class UnitAdminPanel extends BasePanel {
         } catch (Exception e) {
         }
         g.drawImage(entryArrow, 15, 65, 400, 150, null);
-
     }
 
     @Override
@@ -267,11 +266,15 @@ public class UnitAdminPanel extends BasePanel {
 
     private void upgradeUnit(String unitId) {
         UserInfo userInfo = MainController.getInstance().getPlayerController().getPlayerInfo().getUserInfo();
-        if (userInfo.getMoney() - 500 > 0) {
+        if (userInfo.getMoney() - 500 >= 0) {
             userInfo.setUnitLevel(unitId);
             userInfo.setMoney(userInfo.getMoney() - 500);
             MainController.getInstance().getPlayerController().updateLevelInfo(MainController.getInstance().getPlayerController().getPlayerInfo().getUserInfo().getLevelInfo());
             MainController.getInstance().getPlayerController().updatePlayerInfo(userInfo);
+
+            JOptionPane.showMessageDialog(null, "Unit is Upgraded");
+        } else {
+            JOptionPane.showMessageDialog(null, "Not Enough Money");
         }
     }
 
