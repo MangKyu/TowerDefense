@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fd864bba-c4dd-4c3a-b1ea-8a366fbe99e5" name="Default" comment="added signUpPanel">
+    <list default="true" id="fd864bba-c4dd-4c3a-b1ea-8a366fbe99e5" name="Default" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TowerDefense/Controller/Database/DatabaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TowerDefense/Controller/Database/DatabaseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TowerDefense/Controller/Database/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TowerDefense/Controller/Database/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TowerDefense/Controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TowerDefense/Controller/MainController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TowerDefense/Controller/PlayerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TowerDefense/Controller/PlayerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TowerDefense/Model/Unit/UnitA.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TowerDefense/Model/Unit/UnitA.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TowerDefense/Model/Unit/UnitB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TowerDefense/Model/Unit/UnitB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TowerDefense/Model/Unit/UnitC.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TowerDefense/Model/Unit/UnitC.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TowerDefense/Model/Unit/UnitD.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TowerDefense/Model/Unit/UnitD.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TowerDefense/Model/Unit/UnitE.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TowerDefense/Model/Unit/UnitE.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TowerDefense/Model/Unit/UnitF.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TowerDefense/Model/Unit/UnitF.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TowerDefense/Model/Player/PlayerInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TowerDefense/Model/Player/PlayerInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TowerDefense/Model/Player/UserInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TowerDefense/Model/Player/UserInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TowerDefense/View/BasePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TowerDefense/View/BasePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TowerDefense/View/IngamePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TowerDefense/View/IngamePanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TowerDefense/View/LoginPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TowerDefense/View/LoginPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TowerDefense/View/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TowerDefense/View/MainFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/SignUpPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/SignUpPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TowerDefense/View/StagePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TowerDefense/View/StagePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TowerDefense/View/UnitAdminPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TowerDefense/View/UnitAdminPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TowerDefense/sql/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TowerDefense/sql/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/UnitAdminPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/UnitAdminPanel.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,65 +24,56 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="TowerDefense" />
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1110784175">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="5" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="6" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="31" />
+          <entry key="xml" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="31" />
+          <entry key="XML" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="1884" />
+          <entry key="txt" value="256" />
+          <entry key="xml" value="193" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="1884" />
+          <entry key="PLAIN_TEXT" value="256" />
+          <entry key="SQL" value="13" />
+          <entry key="XML" value="180" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/BasePanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="14" column="71" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="71" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/IngamePanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1045">
-              <caret line="67" selection-start-line="67" selection-end-line="67" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/LoginPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="60" column="31" selection-start-line="57" selection-start-column="8" selection-end-line="60" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/View/SignUpPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="96" column="85" selection-start-line="96" selection-start-column="85" selection-end-line="96" selection-end-column="85" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#510#511#0" expanded="true" />
-                <element signature="e#533#534#0" expanded="true" />
-                <element signature="e#1811#1812#0" expanded="true" />
-                <element signature="e#1873#1874#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/PlayerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="69" column="52" selection-start-line="69" selection-start-column="52" selection-end-line="69" selection-end-column="52" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="1767">
+              <caret line="120" column="19" selection-start-line="120" selection-start-column="19" selection-end-line="120" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -87,11 +81,74 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/StagePanel.java">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="241">
+              <caret line="105" column="57" lean-forward="true" selection-start-line="105" selection-start-column="57" selection-end-line="105" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/sql/mapper/UserMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="353">
+              <caret line="20" column="53" lean-forward="true" selection-start-line="20" selection-start-column="53" selection-end-line="20" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/SignUpPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="108" column="83" lean-forward="true" selection-start-line="108" selection-start-column="83" selection-end-line="108" selection-end-column="83" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/LoginPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret line="45" selection-start-line="45" selection-end-line="45" />
+              <caret line="3" column="30" lean-forward="true" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/IngamePanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2033">
+              <caret line="109" column="22" lean-forward="true" selection-start-line="109" selection-start-column="22" selection-end-line="109" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/BasePanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/Database/UserDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="931">
+              <caret line="59" selection-start-line="59" selection-end-line="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/sql/mapper/LevelMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="532">
+              <caret line="28" selection-start-line="28" selection-end-line="38" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -99,24 +156,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/UnitAdminPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="190" column="17" selection-start-line="190" selection-start-column="17" selection-end-line="190" selection-end-column="17" />
+            <state relative-caret-position="245">
+              <caret line="291" column="88" selection-start-line="291" selection-start-column="88" selection-end-line="291" selection-end-column="88" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1141#1142#0" expanded="true" />
-                <element signature="e#1164#1165#0" expanded="true" />
-                <element signature="e#6940#6941#0" expanded="true" />
-                <element signature="e#7000#7001#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/MainFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="55" selection-start-line="55" selection-end-line="55" />
             </state>
           </provider>
         </entry>
@@ -133,6 +177,15 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>$PROJECT_DIR$</find>
+      <find>switch</find>
+      <find>unitLevel</find>
+      <find>update(</find>
+      <find>getUnitLevel</find>
+      <find>Database</find>
+      <find>release</find>
+      <find>levelInfo</find>
+      <find>setUnitLevel</find>
+      <find>PlayerInfo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -143,7 +196,7 @@
       <list>
         <option value="$PROJECT_DIR$/src/Controller/AttackController.java" />
         <option value="$PROJECT_DIR$/src/Controller/Unit/PlayController.java" />
-        <option value="$PROJECT_DIR$/src/View/StagePanel.java" />
+        <option value="$PROJECT_DIR$/src/View/MainFrame.java" />
         <option value="$PROJECT_DIR$/src/Model/Unit/UnitB.java" />
         <option value="$PROJECT_DIR$/src/Model/Unit/UnitC.java" />
         <option value="$PROJECT_DIR$/src/Model/Unit/UnitD.java" />
@@ -156,11 +209,21 @@
         <option value="$PROJECT_DIR$/src/Model/Unit/UnitA.java" />
         <option value="$PROJECT_DIR$/src/Controller/Unit/AttackController.java" />
         <option value="$PROJECT_DIR$/src/Controller/MainController.java" />
-        <option value="$PROJECT_DIR$/src/View/UnitAdminPanel.java" />
+        <option value="$PROJECT_DIR$/src/Model/Player/PlayerInfo.java" />
+        <option value="$PROJECT_DIR$/src/View/BasePanel.java" />
         <option value="$PROJECT_DIR$/src/View/LoginPanel.java" />
-        <option value="$PROJECT_DIR$/src/Controller/PlayerController.java" />
-        <option value="$PROJECT_DIR$/src/View/MainFrame.java" />
+        <option value="$PROJECT_DIR$/src/View/StagePanel.java" />
+        <option value="$PROJECT_DIR$/src/Model/Player/UserInfo.java" />
+        <option value="$PROJECT_DIR$/src/Model/Player/LevelInfo.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Database/DatabaseController.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Database/UserDAO.java" />
+        <option value="$PROJECT_DIR$/Resources/sql/mapper/LevelMapper.xml" />
+        <option value="$PROJECT_DIR$/src/Controller/Database/LevelDAO.java" />
+        <option value="$PROJECT_DIR$/Resources/sql/mapper/UserMapper.xml" />
         <option value="$PROJECT_DIR$/src/View/SignUpPanel.java" />
+        <option value="$PROJECT_DIR$/src/Controller/PlayerController.java" />
+        <option value="$PROJECT_DIR$/src/View/UnitAdminPanel.java" />
+        <option value="$PROJECT_DIR$/src/View/IngamePanel.java" />
       </list>
     </option>
   </component>
@@ -170,11 +233,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="170" />
-    <option name="y" value="15" />
-    <option name="width" value="1750" />
-    <option name="height" value="1005" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-7" />
+    <option name="width" value="973" />
+    <option name="height" value="1041" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -182,7 +244,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -193,7 +254,20 @@
             <path>
               <item name="TowerDefense" type="b2602c69:ProjectViewProjectNode" />
               <item name="TowerDefense" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TowerDefense" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TowerDefense" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="sql" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TowerDefense" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TowerDefense" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="sql" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TowerDefense" type="b2602c69:ProjectViewProjectNode" />
@@ -211,7 +285,14 @@
               <item name="TowerDefense" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Controller" type="462c0819:PsiDirectoryNode" />
-              <item name="Strategy" type="462c0819:PsiDirectoryNode" />
+              <item name="Database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TowerDefense" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TowerDefense" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+              <item name="Unit" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TowerDefense" type="b2602c69:ProjectViewProjectNode" />
@@ -223,23 +304,38 @@
               <item name="TowerDefense" type="b2602c69:ProjectViewProjectNode" />
               <item name="TowerDefense" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="Player" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TowerDefense" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TowerDefense" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="Unit" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TowerDefense" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TowerDefense" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="View" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544953505731" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545023690661" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\P15F v5\IdeaProjects\TowerDefense\img" />
-      <recent name="C:\Users\P15F v5\IdeaProjects\TowerDefense\src\View\image" />
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Controller.Database" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -281,7 +377,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="TestNG">
+    <configuration default="true" type="TestNG" factoryName="TestNG">
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <properties />
       <listeners />
@@ -309,6 +405,8 @@
       <workItem from="1544949791823" duration="73000" />
       <workItem from="1544949886793" duration="586000" />
       <workItem from="1544950502856" duration="183000" />
+      <workItem from="1544950715235" duration="6601000" />
+      <workItem from="1545021994241" duration="1570000" />
     </task>
     <task id="LOCAL-00001" summary="Remove Duplicated MainController instance">
       <created>1544950248495</created>
@@ -317,43 +415,70 @@
       <option name="project" value="LOCAL" />
       <updated>1544950248496</updated>
     </task>
-    <task id="LOCAL-00002" summary="added signUpPanel">
-      <created>1544953314912</created>
+    <task id="LOCAL-00002" summary=".">
+      <created>1544950742946</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1544953314913</updated>
+      <updated>1544950742946</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Create and Access Level Tables">
+      <created>1545022207976</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1545022207976</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Access to User Table Update">
+      <created>1545022240405</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1545022240405</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Implements Observer Pattern to Panel">
+      <created>1545022276522</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1545022276522</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Implements Observer Patterns in SignUp Panel">
+      <created>1545022558577</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1545022558577</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="905000" />
+    <option name="totallyTimeSpent" value="9076000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="136" y="12" width="1400" height="804" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1050" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49925485" visible="true" weight="0.1597015" />
-      <window_info id="Structure" order="1" sideWeight="0.5007452" side_tool="true" weight="0.15746269" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26865673" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" sideWeight="0.5007452" side_tool="true" weight="0.15746269" />
+      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32786885" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32896176" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32886904" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.2533532" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32896176" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32896176" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="right" id="Maven" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -364,58 +489,45 @@
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="right" id="Database" order="8" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25746268" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49626866" weight="0.32872504" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49925372" weight="0.32872504" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5052239" side_tool="true" visible="true" weight="0.32872504" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49477613" visible="true" weight="0.32872504" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32872504" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Remove Duplicated MainController instance" />
-    <MESSAGE value="added signUpPanel" />
-    <option name="LAST_COMMIT_MESSAGE" value="added signUpPanel" />
+    <MESSAGE value="." />
+    <MESSAGE value="Create and Access Level Tables" />
+    <MESSAGE value="Access to User Table Update" />
+    <MESSAGE value="Implements Observer Pattern to Panel" />
+    <MESSAGE value="Implements Observer Patterns in SignUp Panel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implements Observer Patterns in SignUp Panel" />
   </component>
   <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="UnitAdminPanel.class" language="JAVA" />
-      </configuration>
-    </watches-manager>
-  </component>
-  <component name="debuggerHistoryManager">
-    <expressions id="watch">
-      <expression>
-        <expression-string>UnitAdminPanel.class</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-    </expressions>
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Controller/Database/LevelDAO.java</url>
+          <line>37</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/View/UnitAdminPanel.java</url>
+          <line>219</line>
+          <properties />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/View/UnitAdminPanel.java</url>
+          <line>268</line>
+          <properties />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/lang/Runnable.java" />
@@ -447,16 +559,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Player/UserInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="66" column="15" selection-start-line="66" selection-start-column="15" selection-end-line="66" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -488,35 +590,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Player/LevelInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Player/PlayerInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
-          <folding>
-            <element signature="e#494#495#0" expanded="true" />
-            <element signature="e#525#526#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Unit/AttackController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -527,55 +604,159 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Unit/UnitFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
+        <state relative-caret-position="1501">
           <caret line="312" column="20" selection-start-line="312" selection-start-column="20" selection-end-line="312" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/BasePanel.java">
+    <entry file="file://$PROJECT_DIR$/src/Controller/Unit/UnitFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="14" column="71" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="71" />
+        <state relative-caret-position="133">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/IngamePanel.java">
+    <entry file="file://$PROJECT_DIR$/src/View/MainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1045">
-          <caret line="67" selection-start-line="67" selection-end-line="67" />
+        <state relative-caret-position="166">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Database/DatabaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/UnitAdminPanel.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/Player/LevelInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="190" column="17" selection-start-line="190" selection-start-column="17" selection-end-line="190" selection-end-column="17" />
+        <state relative-caret-position="304">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="e#266#267#0" expanded="true" />
+            <element signature="e#291#292#0" expanded="true" />
+            <element signature="e#327#328#0" expanded="true" />
+            <element signature="e#355#356#0" expanded="true" />
+            <element signature="e#422#423#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Player/PlayerInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="e#597#598#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Player/UserInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
+          <folding>
+            <element signature="e#1251#1252#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1141#1142#0" expanded="true" />
-            <element signature="e#1164#1165#0" expanded="true" />
-            <element signature="e#6940#6941#0" expanded="true" />
-            <element signature="e#7000#7001#0" expanded="true" />
+            <element signature="e#1308#1309#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Database/LevelDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Database/UserDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="931">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/sql/mapper/LevelMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="28" selection-start-line="28" selection-end-line="38" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/sql/mapper/UserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="20" column="53" lean-forward="true" selection-start-line="20" selection-start-column="53" selection-end-line="20" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/LoginPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="3" column="30" lean-forward="true" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/SignUpPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="108" column="83" lean-forward="true" selection-start-line="108" selection-start-column="83" selection-end-line="108" selection-end-column="83" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/StagePanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        <state relative-caret-position="241">
+          <caret line="105" column="57" lean-forward="true" selection-start-line="105" selection-start-column="57" selection-end-line="105" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/IngamePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2033">
+          <caret line="109" column="22" lean-forward="true" selection-start-line="109" selection-start-column="22" selection-end-line="109" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/BasePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/UnitAdminPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="291" column="88" selection-start-line="291" selection-start-column="88" selection-end-line="291" selection-end-column="88" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -584,49 +765,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/PlayerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="69" column="52" selection-start-line="69" selection-start-column="52" selection-end-line="69" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-38">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/MainFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/LoginPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="60" column="31" selection-start-line="57" selection-start-column="8" selection-end-line="60" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/SignUpPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="96" column="85" selection-start-line="96" selection-start-column="85" selection-end-line="96" selection-end-column="85" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#510#511#0" expanded="true" />
-            <element signature="e#533#534#0" expanded="true" />
-            <element signature="e#1811#1812#0" expanded="true" />
-            <element signature="e#1873#1874#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1767">
+          <caret line="120" column="19" selection-start-line="120" selection-start-column="19" selection-end-line="120" selection-end-column="19" />
         </state>
       </provider>
     </entry>
