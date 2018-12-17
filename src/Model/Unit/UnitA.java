@@ -8,10 +8,11 @@ public class UnitA extends BaseUnit {
     final static int baseCost = 100;
 
 
-    public UnitA(int level,boolean teamInfo) {
+    public UnitA(int level, boolean teamInfo) {
         super();
         this.unitId = "UNIT_A";
         InitUnit(level, teamInfo);
+
         th = new Thread(this);
         th.start();
     }
@@ -22,6 +23,12 @@ public class UnitA extends BaseUnit {
 
         tempHp = baseHp + level * 10;
         tempPower = basePower + level * 5;
+
+        if (teamInfo == false) {
+            positionX = 150;
+        } else {
+            positionX = 800;
+        }
 
         this.power = tempPower;
         this.hp = tempHp;
