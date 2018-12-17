@@ -12,7 +12,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 
 public class IngamePanel extends BasePanel implements ActionListener{
 
@@ -50,11 +52,13 @@ public class IngamePanel extends BasePanel implements ActionListener{
         int hp = MainController.getInstance().getPlayerController().getPlayerInfo().getHp();
         int mp = MainController.getInstance().getPlayerController().getPlayerInfo().getMp();
         g.setColor(Color.RED);
-        g.fillRect(700, 850, 250, 25);
+        g.fillRect(700, 850, hp*250/1000, 25);
+
         g.setColor(Color.BLUE);
-        g.fillRect(700, 900, 250, 25);
-        g.setColor(Color.WHITE);
+        g.fillRect(700, 900, mp*250/1500, 25);
+
         g.drawRect(700, 850, 250, 25);
+        g.setColor(Color.WHITE);
         g.drawRect(700, 900, 250, 25);
     }
 
@@ -74,9 +78,19 @@ public class IngamePanel extends BasePanel implements ActionListener{
         pauseButton.setVisible(true);
         this.add(pauseButton);
 
-        this.skillButton = new JButton("스킬");
-        skillButton.setBounds(50, 800, 100, 100);
+        this.skillButton = new JButton();
+        BufferedImage btnImage = null;
+        try {
+            btnImage = ImageIO.read(new File("./img/SkillA.png"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        skillButton.setIcon(new ImageIcon(btnImage));
+        skillButton.setBounds(50, 800, 180, 180);
         skillButton.setVisible(true);
+        skillButton.setOpaque(false);
+        skillButton.setContentAreaFilled(false);
+        skillButton.setBorderPainted(false);
         this.add(skillButton);
 
         this.summon1Button = new JButton("유닛1");
@@ -119,12 +133,25 @@ public class IngamePanel extends BasePanel implements ActionListener{
             Object source = e.getSource();
             PlayerInfo playerInfo = MainController.getInstance().getPlayerController().getPlayerInfo();
             if (source.equals(skillButton)) {
+                BufferedImage btnImage = null;
                 boolean skillFlag = playerInfo.getSkillFlag();
                 if (skillFlag) {
                     MainController.getInstance().getPlayerController().skill(new SkillStrategyA());
+                    try {
+                        btnImage = ImageIO.read(new File("./img/SkillA.png"));
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+
                 } else {
                     MainController.getInstance().getPlayerController().skill(new SkillStrategyB());
+                    try {
+                        btnImage = ImageIO.read(new File("./img/SkillB.png"));
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                 }
+                skillButton.setIcon(new ImageIcon(btnImage));
                 playerInfo.setSkillFlag(!skillFlag);
 
             } else if (source.equals(cancelButton)) {
@@ -157,17 +184,23 @@ public class IngamePanel extends BasePanel implements ActionListener{
     private void addUnit(int index) {
         BaseUnit unit = MainController.getInstance().getPlayerController().getUnitByIndex(index);
         int mp = MainController.getInstance().getPlayerController().getPlayerInfo().getMp() - unit.getCost();
-        if (unit != null && mp >= 0) {
-            int unitLevel = MainController.getInstance().getPlayerController().getPlayerInfo().getUserInfo().getUnitLevel(unit.getUnitId());
-            BaseUnit newUnit = MainController.getInstance().getUnitController().produceUnit(unit.getUnitId(), unitLevel, false);
-            MainController.getInstance().getAttackController().addUnit(newUnit);
-            this.add(newUnit);
-            MainController.getInstance().getPlayerController().getPlayerInfo().setMp(mp);
-            MainController.getInstance().getPlayerController().updatePlayerInfo();
+        if (unit != null) {
+            if(mp >= 0){
+                int unitLevel = MainController.getInstance().getPlayerController().getPlayerInfo().getUserInfo().getUnitLevel(unit.getUnitId());
+                BaseUnit newUnit = MainController.getInstance().getUnitController().produceUnit(unit.getUnitId(), unitLevel, false);
+                MainController.getInstance().getAttackController().addUnit(newUnit);
+                this.add(newUnit);
+                MainController.getInstance().getPlayerController().getPlayerInfo().setMp(mp);
+                MainController.getInstance().getPlayerController().updatePlayerInfo();
 
-            Thread t = new Thread(newUnit);
-            t.start();
-            repaint();
+                Thread t = new Thread(newUnit);
+                t.start();
+            }else {
+                JOptionPane.showMessageDialog(null, "Player's MP is not enough");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Unit doesn't Exist");
+
         }
     }
 
