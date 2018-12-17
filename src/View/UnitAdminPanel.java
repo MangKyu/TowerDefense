@@ -1,5 +1,6 @@
 package View;
 
+import Controller.Main;
 import Controller.MainController;
 import Model.Player.PlayerInfo;
 import Model.Player.UserInfo;
@@ -36,10 +37,10 @@ public class UnitAdminPanel extends BasePanel {
     public JLabel moneyLabel;
     public JLabel userMoneyLabel;
 
-    public JLabel pointSelectedUnit_1;
-    public JLabel pointSelectedUnit_2;
-    public JLabel pointSelectedUnit_3;
-    public JLabel pointSelectedUnit_4;
+    public JLabel SelectedUnit_1;
+    public JLabel SelectedUnit_2;
+    public JLabel SelectedUnit_3;
+    public JLabel SelectedUnit_4;
 
     private BufferedImage unitImage;
     public Image entryArrow;
@@ -65,7 +66,6 @@ public class UnitAdminPanel extends BasePanel {
         } catch (Exception e) {
         }
         g.drawImage(entryArrow, 15, 65, 400, 150, null);
-
     }
 
     @Override
@@ -177,6 +177,7 @@ public class UnitAdminPanel extends BasePanel {
 
         upgradeButton_6 = new JButton("업그레이드  500G");
         upgradeButton_6.setBounds(790, 500, 150, 100);
+        
         upgradeButton_6.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(upgradeButton_6);
 
@@ -227,17 +228,17 @@ public class UnitAdminPanel extends BasePanel {
             public void mouseClicked(MouseEvent e) {
                 Object source = e.getSource();
                 if (source.equals(unitLabel_1)) {
-                    addUnit("UNIT_A", true);
+                    addUnit("UNIT_A");
                 } else if (source.equals(unitLabel_2)) {
-                    addUnit("UNIT_B", true);
+                    addUnit("UNIT_B");
                 } else if (source.equals(unitLabel_3)) {
-                    addUnit("UNIT_C", true);
+                    addUnit("UNIT_C");
                 } else if (source.equals(unitLabel_4)) {
-                    addUnit("UNIT_D", true);
+                    addUnit("UNIT_D");
                 } else if (source.equals(unitLabel_5)) {
-                    addUnit("UNIT_E", true);
+                    addUnit("UNIT_E");
                 } else if (source.equals(unitLabel_6)) {
-                    addUnit("UNIT_F", true);
+                    addUnit("UNIT_F");
                 }
             }
 
@@ -272,7 +273,8 @@ public class UnitAdminPanel extends BasePanel {
             userInfo.setMoney(userInfo.getMoney() - 500);
             MainController.getInstance().getPlayerController().updateLevelInfo(MainController.getInstance().getPlayerController().getPlayerInfo().getUserInfo().getLevelInfo());
             MainController.getInstance().getPlayerController().updatePlayerInfo(userInfo);
-        }else{
+            JOptionPane.showMessageDialog(null, "Unit is Upgraded");
+        } else {
             JOptionPane.showMessageDialog(null, "Not Enough Money");
         }
      }
@@ -286,9 +288,10 @@ public class UnitAdminPanel extends BasePanel {
         unitLabel_6.addMouseListener(mouseListener);
     }
 
-    private void addUnit(String unitId, boolean teamFlag) {
+    private void addUnit(String unitId) {
         int levelInfo = MainController.getInstance().getPlayerController().getPlayerInfo().getUserInfo().getUnitLevel(unitId);
-        BaseUnit unit = MainController.getInstance().getUnitController().produceUnit(unitId, levelInfo, true);
+        //BaseUnit unit = MainController.getInstance().getUnitController().produceUnit(unitId);
+        BaseUnit unit = MainController.getInstance().getUnitController().produceUnit(unitId, levelInfo, false);
         boolean duplicatedFlag = MainController.getInstance().getPlayerController().addUnit(unit);
         if (duplicatedFlag) {
             JOptionPane.showMessageDialog(null, "Duplicated Unit is Selected");

@@ -109,12 +109,13 @@ public class StagePanel extends BasePanel {
                     enemyController = new EnemyController(5);
                 }
                 ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "IngamePanel");
+                /*
                 MainController.getInstance().getAttackController().setIsPlaying(true);
                 enemyController.setIsPlaying(true);
                 enemyThread = new Thread(enemyController);
                 playThread.start();
                 enemyThread.start();
-
+                */
             }
         };
 

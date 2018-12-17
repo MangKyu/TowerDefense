@@ -9,11 +9,11 @@ import Model.Unit.BaseUnit;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
-
-public class IngamePanel extends BasePanel {
+public class IngamePanel extends BasePanel implements ActionListener{
 
     public JButton cancelButton;
     public JButton pauseButton;
@@ -23,24 +23,20 @@ public class IngamePanel extends BasePanel {
     public JButton summon3Button;
     public JButton summon4Button;
     private JPanel cardsPanel;
-    private Thread playThread;
+    private Timer timer;
 
     public IngamePanel(JPanel cardsPanel) {
         super(MainController.getInstance().getPlayerController());
         MainController.getInstance().getPlayerController().add(this);
         this.cardsPanel = cardsPanel;
-        /*
-        playThread = new Thread(MainController.getInstance().getPlayController());
-        MainController.getInstance().getPlayController().setIsPlaying(true);
-        playThread.start();
-        */
+        this.timer = new Timer(1000, this);
         addAction();
+        startTimer();
     }
 
     @Override
     public void paintComponent(Graphics g) {
         Image bgImage = null;
-
         try {
             bgImage = ImageIO.read(new File("./img/bgImage.png"));
         } catch (Exception e) {
@@ -55,6 +51,9 @@ public class IngamePanel extends BasePanel {
         g.setColor(Color.BLACK);
         g.drawRect(700, 850, 250, 25);
         g.drawRect(700, 900, 250, 25);
+
+        MainController.getInstance().getAttackController().setIsPlaying(true);
+        startTimer();
     }
 
     @Override
@@ -133,19 +132,17 @@ public class IngamePanel extends BasePanel {
 
             } else if (source.equals(summon1Button)) {
                 addUnit(0);
-
             } else if (source.equals(summon2Button)) {
                 addUnit(1);
-
             } else if (source.equals(summon3Button)) {
                 addUnit(2);
-
             } else if (source.equals(summon4Button)) {
                 addUnit(3);
             } else if (source.equals(cancelButton)) {
+                MainController.getInstance().getAttackController().setIsPlaying(false);
+                stopTimer();
                 ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "StagePanel");
             }
-
         };
 
         addActionListener(actionListener);
@@ -158,6 +155,25 @@ public class IngamePanel extends BasePanel {
             int unitLevel = MainController.getInstance().getPlayerController().getPlayerInfo().getUserInfo().getUnitLevel(unit.getUnitId());
             BaseUnit newUnit = MainController.getInstance().getUnitController().produceUnit(unit.getUnitId(), unitLevel, false);
             MainController.getInstance().getAttackController().addUnit(newUnit);
+            this.add(newUnit);
+            Thread t = new Thread(newUnit);
+            t.start();
+            repaint();
+        }
+    }
+
+    public void startTimer(){
+        timer.start();
+    }
+
+    public void stopTimer(){
+        timer.stop();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource()==timer){
+            repaint();
         }
     }
 }
