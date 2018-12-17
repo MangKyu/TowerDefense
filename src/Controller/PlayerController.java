@@ -122,7 +122,7 @@ public class PlayerController implements PlayerObserver {
         return unitList;
     }
 
-    public boolean addUnit(BaseUnit newUnit) {
+    public boolean isDuplicated(BaseUnit newUnit) {
         boolean duplicatedFlag = false;
         for (BaseUnit unit : unitList) {
             if (unit.getUnitId().equals(newUnit.getUnitId())) {
@@ -132,7 +132,6 @@ public class PlayerController implements PlayerObserver {
         }
         if (!duplicatedFlag) {
             System.out.println(newUnit.getUnitId());
-            unitList.add(newUnit);
         }
         return duplicatedFlag;
     }
@@ -141,4 +140,7 @@ public class PlayerController implements PlayerObserver {
         unitList.remove(unit);
     }
 
+    public void addUnit(BaseUnit unit) {
+        unitList.add(unit);
+    }
 }
