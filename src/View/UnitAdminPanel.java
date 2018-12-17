@@ -176,6 +176,7 @@ public class UnitAdminPanel extends BasePanel {
 
         upgradeButton_6 = new JButton("업그레이드  500G");
         upgradeButton_6.setBounds(790, 500, 150, 100);
+        
         upgradeButton_6.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(upgradeButton_6);
 
