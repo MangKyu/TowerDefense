@@ -109,6 +109,7 @@ public class StagePanel extends BasePanel {
                     enemyController = new EnemyController(5);
                 }
 
+                System.out.println("----------- G A M E     S T A R T ! -----------");
                 ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "IngamePanel");
                 playThread = new Thread(MainController.getInstance().getAttackController());
                 enemyThread = new Thread(enemyController);

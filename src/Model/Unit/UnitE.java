@@ -12,7 +12,11 @@ public class UnitE extends BaseUnit {
         super();
         this.unitId = "UNIT_E";
         InitUnit(level, teamInfo);
-        System.out.println("E IS CREATED");
+        if (teamInfo) {
+            System.out.println("Enemy E IS CREATED");
+        } else {
+            System.out.println("E IS CREATED");
+        }
     }
 
 

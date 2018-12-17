@@ -26,7 +26,7 @@ public class AttackController implements Runnable {
             unitList = new ArrayList<BaseUnit>();
             BaseUnit b1;
             BaseUnit b2;
-            if (unitList.size() != 0) {
+            if (unitList.size() >=2) {
                 for (int i = 0; i < unitList.size(); i++) {
                     b1 = unitList.get(i);
                     int enemyNum = 0;
