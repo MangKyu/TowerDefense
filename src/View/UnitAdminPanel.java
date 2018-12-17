@@ -267,13 +267,15 @@ public class UnitAdminPanel extends BasePanel {
 
     private void upgradeUnit(String unitId) {
         UserInfo userInfo = MainController.getInstance().getPlayerController().getPlayerInfo().getUserInfo();
-        if (userInfo.getMoney() - 500 > 0) {
+        if (userInfo.getMoney() - 500 >= 0) {
             userInfo.setUnitLevel(unitId);
             userInfo.setMoney(userInfo.getMoney() - 500);
             MainController.getInstance().getPlayerController().updateLevelInfo(MainController.getInstance().getPlayerController().getPlayerInfo().getUserInfo().getLevelInfo());
             MainController.getInstance().getPlayerController().updatePlayerInfo(userInfo);
+        }else{
+            JOptionPane.showMessageDialog(null, "Not Enough Money");
         }
-    }
+     }
 
     private void addMyMouseListener(MouseListener mouseListener) {
         unitLabel_1.addMouseListener(mouseListener);
