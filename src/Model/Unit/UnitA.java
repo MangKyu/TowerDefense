@@ -1,5 +1,7 @@
 package Model.Unit;
 
+import javax.swing.*;
+
 public class UnitA extends BaseUnit {
     final static int baseHp = 100;
     final static int basePower = 10;
@@ -12,9 +14,7 @@ public class UnitA extends BaseUnit {
         super();
         this.unitId = "UNIT_A";
         InitUnit(level, teamInfo);
-
-        th = new Thread(this);
-        th.start();
+        System.out.println("A IS CREATED");
     }
 
     public void InitUnit(int level, boolean teamInfo) {

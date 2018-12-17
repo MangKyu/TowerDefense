@@ -3,6 +3,7 @@ package Model.Unit;
 import Controller.PlayerController;
 import Controller.Unit.AttackController;
 
+import javax.swing.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -27,6 +28,8 @@ public abstract class BaseUnit implements Runnable {
     int positionY = 500;
     public final static int attackRange = 15;
     Thread th;
+    JLabel label;
+    ImageIcon icon;
 
 
     public BaseUnit() {
@@ -38,6 +41,10 @@ public abstract class BaseUnit implements Runnable {
         } finally {
             lock.unlock();
         }
+    }
+
+    public JLabel getLabel(){
+        return this.label;
     }
 
     public int getId() {

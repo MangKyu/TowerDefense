@@ -12,8 +12,7 @@ public class UnitD extends BaseUnit {
         super();
         this.unitId = "UNIT_D";
         InitUnit(level, teamInfo);
-        th = new Thread(this);
-        th.start();
+        System.out.println("D IS CREATED");
     }
 
 

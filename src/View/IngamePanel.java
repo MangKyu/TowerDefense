@@ -157,7 +157,7 @@ public class IngamePanel extends BasePanel {
         if (unit != null) {
             int unitLevel = MainController.getInstance().getPlayerController().getPlayerInfo().getUserInfo().getUnitLevel(unit.getUnitId());
             BaseUnit newUnit = MainController.getInstance().getUnitController().produceUnit(unit.getUnitId(), unitLevel, false);
-            //MainController.getInstance().getPlayController().addUnit(newUnit);
+            MainController.getInstance().getAttackController().addUnit(newUnit);
         }
     }
 }
