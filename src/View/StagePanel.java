@@ -23,7 +23,8 @@ public class StagePanel extends BasePanel {
     private EnemyController enemyController;
 
     public StagePanel(JPanel cardsPanel) {
-        super();
+        super(MainController.getInstance().getPlayerController());
+        MainController.getInstance().getPlayerController().add(this);
         this.cardsPanel = cardsPanel;
         playThread = new Thread(MainController.getInstance().getAttackController());
         addAction();

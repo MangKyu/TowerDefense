@@ -25,12 +25,9 @@ public class IngamePanel extends BasePanel {
     private Thread playThread;
     private String switchSkill = "스킬A";
 
-    public IngamePanel() {
-        super();
-    }
-
     public IngamePanel(JPanel cardsPanel) {
-        super();
+        super(MainController.getInstance().getPlayerController());
+        MainController.getInstance().getPlayerController().add(this);
         this.cardsPanel = cardsPanel;
         /*
         playThread = new Thread(MainController.getInstance().getPlayController());
@@ -147,11 +144,11 @@ public class IngamePanel extends BasePanel {
 
     }
 
-    private void addUnit(int index){
+    private void addUnit(int index) {
         BaseUnit unit = MainController.getInstance().getPlayerController().getUnitByIndex(index);
-        if(unit != null){
+        if (unit != null) {
             int unitLevel = MainController.getInstance().getPlayerController().getPlayerInfo().getUserInfo().getUnitLevel(unit.getUnitId());
-            BaseUnit newUnit = MainController.getInstance().getUnitController().produceUnit(unit.getUnitId(), unitLevel,false);
+            BaseUnit newUnit = MainController.getInstance().getUnitController().produceUnit(unit.getUnitId(), unitLevel, false);
             //MainController.getInstance().getPlayController().addUnit(newUnit);
         }
     }
