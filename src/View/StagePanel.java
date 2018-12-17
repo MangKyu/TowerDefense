@@ -20,8 +20,8 @@ public class StagePanel extends BasePanel {
     public JButton stage4Button;
     public JButton stage5Button;
     private JPanel cardsPanel;
-    private Thread playThread;
-    private Thread enemyThread;
+    public static Thread playThread;
+    public static Thread enemyThread;
     private EnemyController enemyController;
 
     public Image bgImage;
@@ -30,7 +30,6 @@ public class StagePanel extends BasePanel {
         super(MainController.getInstance().getPlayerController());
         MainController.getInstance().getPlayerController().add(this);
         this.cardsPanel = cardsPanel;
-        playThread = new Thread(MainController.getInstance().getAttackController());
         addAction();
     }
 
@@ -97,6 +96,7 @@ public class StagePanel extends BasePanel {
             if (source.equals(unitAdminButton)) {
                 ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "UnitAdminPanel");
             } else {
+
                 if (source.equals(stage1Button)) {
                     enemyController = new EnemyController(1);
                 } else if (source.equals(stage2Button)) {
@@ -108,10 +108,12 @@ public class StagePanel extends BasePanel {
                 } else if (source.equals(stage5Button)) {
                     enemyController = new EnemyController(5);
                 }
+
                 ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "IngamePanel");
+                playThread = new Thread(MainController.getInstance().getAttackController());
+                enemyThread = new Thread(enemyController);
                 MainController.getInstance().getAttackController().setIsPlaying(true);
                 enemyController.setIsPlaying(true);
-                enemyThread = new Thread(enemyController);
                 playThread.start();
                 enemyThread.start();
 

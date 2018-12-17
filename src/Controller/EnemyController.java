@@ -9,7 +9,7 @@ public class EnemyController implements Runnable {
 
     private int mp = 1500;
     private Random random;
-    private boolean isPlaying;
+    public static boolean isPlaying;
     private UnitFactory unitFactory;
     private int stageNum;
 

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class AttackController implements Runnable {
 
-    public static ArrayList<BaseUnit> unitList = new ArrayList<BaseUnit>();
+    public static ArrayList<BaseUnit> unitList;
     private boolean isPlaying = false;
 
     public AttackController(){
@@ -23,6 +23,7 @@ public class AttackController implements Runnable {
     }
     public void run() {
         while (isPlaying) {
+            unitList = new ArrayList<BaseUnit>();
             BaseUnit b1;
             BaseUnit b2;
             if (unitList.size() != 0) {

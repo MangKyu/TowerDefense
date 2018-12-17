@@ -1,5 +1,6 @@
 package View;
 
+import Controller.EnemyController;
 import Controller.MainController;
 import Controller.Strategy.SkillStrategyA;
 import Controller.Strategy.SkillStrategyB;
@@ -140,6 +141,11 @@ public class IngamePanel extends BasePanel {
                 addUnit(3);
             } else if (source.equals(cancelButton)) {
                 ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "StagePanel");
+                MainController.getInstance().getAttackController().setIsPlaying(false);
+                EnemyController.isPlaying = false;
+                StagePanel.playThread.interrupt();
+                StagePanel.enemyThread.interrupt();
+
             }
 
         };
