@@ -31,7 +31,12 @@
     </insert>
 
     <update id="updateUser" parameterType="userInfo">
-        UPDATE USER_INFO (id, pw, money, score) SET (#{id}, #{pw}, #{money}, #{score});
+        UPDATE USER_INFO
+          SET
+            pw = #{pw},
+            money = #{money},
+            score = #{score}
+        WHERE ID = #{id}
     </update>
 
 </mapper>
