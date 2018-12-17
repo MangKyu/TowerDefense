@@ -31,7 +31,7 @@ public class IngamePanel extends BasePanel implements ActionListener{
         this.cardsPanel = cardsPanel;
         this.timer = new Timer(1000, this);
         addAction();
-        startTimer();
+        //startTimer();
     }
 
     @Override
@@ -162,11 +162,11 @@ public class IngamePanel extends BasePanel implements ActionListener{
         }
     }
 
-    public void startTimer(){
+    private void startTimer(){
         timer.start();
     }
 
-    public void stopTimer(){
+    private void stopTimer(){
         timer.stop();
     }
 
