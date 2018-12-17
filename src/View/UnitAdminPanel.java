@@ -237,12 +237,6 @@ public class UnitAdminPanel extends BasePanel {
         this.setVisible(true);
     }
 
-    private void makeTransparent(JButton jButton){
-        jButton.setOpaque(false);
-        jButton.setContentAreaFilled(false);
-        jButton.setBorderPainted(false);
-    }
-
     @Override
     protected void addActionListener(ActionListener actionListener) {
         finishButton.addActionListener(actionListener);

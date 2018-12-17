@@ -8,6 +8,7 @@ import javax.swing.*;
 import javax.swing.border.SoftBevelBorder;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 public class StagePanel extends BasePanel {
@@ -31,7 +32,7 @@ public class StagePanel extends BasePanel {
     public void paintComponent(Graphics g) {
         Image bgImage = null;
         try{
-            bgImage = ImageIO.read(new File("./img/bgImage.png"));
+            bgImage = ImageIO.read(new File("./img/StageBackground.png"));
         }catch (Exception e) {
             e.printStackTrace();
         }
@@ -42,34 +43,82 @@ public class StagePanel extends BasePanel {
     protected void initComponents() {
         this.setLayout(null);
         this.setSize(1000, 1000);
+        BufferedImage bufferedImage = null;
 
-        unitAdminButton = new JButton("내 유닛 관리");
-        unitAdminButton.setBounds(30, 15, 150, 100);
-        unitAdminButton.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
+        try {
+            bufferedImage = ImageIO.read(new File("./img/UnitAdminButton.png"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        unitAdminButton = new JButton();
+        unitAdminButton.setBounds(30, 50, 361, 113);
+        unitAdminButton.setIcon(new ImageIcon(bufferedImage));
+        makeTransparent(unitAdminButton);
         this.add(unitAdminButton);
 
-        stage1Button = new JButton("stage 1");
-        stage1Button.setBounds(30, 425, 150, 100);
+        try {
+            bufferedImage = ImageIO.read(new File("./img/Stage1.png"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        stage1Button = new JButton();
+        stage1Button.setBounds(20, 525, 188, 188);
+        stage1Button.setIcon(new ImageIcon(bufferedImage));
+        makeTransparent(stage1Button);
         stage1Button.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(stage1Button);
 
-        stage2Button = new JButton("stage 2");
-        stage2Button.setBounds(210, 425, 150, 100);
+        try {
+            bufferedImage = ImageIO.read(new File("./img/Stage2.png"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        stage2Button = new JButton();
+        stage2Button.setBounds(210, 525, 188, 188);
+        stage2Button.setIcon(new ImageIcon(bufferedImage));
+        makeTransparent(stage2Button);
         stage2Button.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(stage2Button);
 
-        stage3Button = new JButton("stage 3");
-        stage3Button.setBounds(390, 425, 150, 100);
+        try {
+            bufferedImage = ImageIO.read(new File("./img/Stage3.png"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        stage3Button = new JButton();
+        stage3Button.setBounds(400, 525, 188, 188);
+        stage3Button.setIcon(new ImageIcon(bufferedImage));
+        makeTransparent(stage3Button);
         stage3Button.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(stage3Button);
 
-        stage4Button = new JButton("stage 4");
-        stage4Button.setBounds(570, 425, 150, 100);
+        try {
+            bufferedImage = ImageIO.read(new File("./img/Stage4.png"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        stage4Button = new JButton();
+        stage4Button.setBounds(590, 525, 188, 188);
+        stage4Button.setIcon(new ImageIcon(bufferedImage));
+        makeTransparent(stage4Button);
         stage4Button.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(stage4Button);
 
+        try {
+            bufferedImage = ImageIO.read(new File("./img/Stage5.png"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         stage5Button = new JButton("stage 5");
-        stage5Button.setBounds(750, 425, 150, 100);
+        stage5Button.setBounds(780, 525, 188, 188);
+        stage5Button.setIcon(new ImageIcon(bufferedImage));
+        makeTransparent(stage5Button);
         stage5Button.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
         this.add(stage5Button);
 

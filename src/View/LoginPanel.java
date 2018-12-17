@@ -5,9 +5,13 @@ import Model.Player.LevelInfo;
 import Model.Player.PlayerInfo;
 import Model.Player.UserInfo;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.SoftBevelBorder;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 public class LoginPanel extends BasePanel {
 
@@ -27,29 +31,42 @@ public class LoginPanel extends BasePanel {
         addAction();
     }
 
+    @Override
+    public void paintComponent(Graphics g) {
+        try {
+            BufferedImage bgImage = ImageIO.read(new File("./img/LoginBackground.png"));
+            g.drawImage(bgImage, 0, 0, 1000, 1000, null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     protected void initComponents() {
         this.setLayout(null);
         this.setSize(1000, 1000);
 
-        this.idLabel = new JLabel("I D");
-        idLabel.setBounds(300, 300, 200, 60);
+        this.idLabel = new JLabel("ID");
+        idLabel.setBounds(270, 300, 200, 60);
+        //idLabel.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
+        idLabel.setFont (idLabel.getFont().deriveFont (36.0f));
         idLabel.setVisible(true);
         this.add(idLabel);
 
-        this.pwLabel = new JLabel("P W");
-        pwLabel.setBounds(300, 400, 200, 60);
+        this.pwLabel = new JLabel("PW");
+        pwLabel.setBounds(270, 400, 200, 60);
+        //pwLabel.setBorder(new SoftBevelBorder((SoftBevelBorder.RAISED)));
+        pwLabel.setFont (pwLabel.getFont().deriveFont (36.0f));
         pwLabel.setVisible(true);
         this.add(pwLabel);
 
         this.idField = new JTextField();
-        idField.setBounds(650, 300, 200, 60);
+        idField.setBounds(600, 300, 200, 60);
         idField.setVisible(true);
         this.add(idField);
 
         this.pwField = new JPasswordField();
-        pwField.setBounds(650, 400, 200, 60);
+        pwField.setBounds(600, 400, 200, 60);
         pwField.setVisible(true);
         this.add(pwField);
 
