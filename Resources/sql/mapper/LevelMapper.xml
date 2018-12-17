@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="Model.Player.UserInfo">
+<mapper namespace="Model.Player.LevelInfo">
     <!--
     <resultMap id="userInfo" type="UserInfo">
         <result property="id" column="id"/>
@@ -13,8 +13,9 @@
     </resultMap>
     -->
 
-    <select id="retrieveLevelInfo" parameterType="userInfo" resultType="levelInfo">
+    <select id="retrieveLevelInfo" parameterType="levelInfo" resultType="levelInfo">
         SELECT
+          ID AS id,
           UNIT_A AS unitALevel,
           UNIT_B AS unitBLevel,
           UNIT_C AS unitCLevel,
@@ -23,5 +24,18 @@
           UNIT_F AS unitFLevel
         FROM LEVEL_INFO WHERE id = #{id}
     </select>
+
+
+    <update id="updateLevelInfo" parameterType="levelInfo">
+        UPDATE LEVEL_INFO
+          SET
+            UNIT_A = #{unitALevel},
+            UNIT_B = #{unitBLevel},
+            UNIT_C = #{unitCLevel},
+            UNIT_D = #{unitDLevel},
+            UNIT_E = #{unitELevel},
+            UNIT_F = #{unitFLevel}
+        WHERE ID = #{id}
+    </update>
 
 </mapper>

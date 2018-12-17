@@ -19,12 +19,10 @@ public class LoginPanel extends BasePanel {
     public JLabel pwLabel;
     private JPanel cardsPanel;
 
-    public LoginPanel() {
-        super();
-    }
-
     public LoginPanel(JPanel cardsPanel) {
-        super();
+        super(MainController.getInstance().getPlayerController());
+        MainController.getInstance().getPlayerController().add(this);
+
         this.cardsPanel = cardsPanel;
         addAction();
     }
@@ -95,7 +93,7 @@ public class LoginPanel extends BasePanel {
                 } else {
                     LevelInfo levelInfo = MainController.getInstance().getPlayerController().retrieveLevelInfo(userInfo);
                     userInfo.setLevelInfo(levelInfo);
-                    MainController.getInstance().getPlayerController().getPlayerInfo().setUserInfo(userInfo);
+                    MainController.getInstance().getPlayerController().updatePlayerInfo(userInfo);
                     ((CardLayout) cardsPanel.getLayout()).show(cardsPanel, "UnitAdminPanel");
                 }
             } else if (source.equals(signUpButton)) {

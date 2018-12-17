@@ -15,16 +15,16 @@ public class MainController {
     private PlayerController playerController;
     private AttackController attackController;
 
-    public MainController(){
+    public MainController() {
         instance = this;
         this.date = new Date();
         this.attackController = new AttackController();
-        this.databaseController= new DatabaseController();
+        this.databaseController = new DatabaseController();
         this.playerController = new PlayerController();
         this.unitController = new UnitController();
     }
 
-    public String getCurrentDate(){
+    public String getCurrentDate() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd a hh:mm:ss ");
         return dateFormat.format(date);
     }
@@ -45,12 +45,12 @@ public class MainController {
         return playerController;
     }
 
-    public AttackController getAttackController(){
+    public AttackController getAttackController() {
         return this.attackController;
     }
 
-    public static MainController getInstance(){
-        if(instance == null){
+    public static MainController getInstance() {
+        if (instance == null) {
             instance = new MainController();
         }
         return instance;

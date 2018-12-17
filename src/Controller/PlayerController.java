@@ -1,6 +1,7 @@
 package Controller;
 
 import Controller.Database.DatabaseController;
+import Controller.Database.LevelDAO;
 import Controller.Database.UserDAO;
 import Controller.Observer.Observer;
 import Controller.Observer.PlayerObserver;
@@ -11,14 +12,13 @@ import Model.Player.UserInfo;
 import Model.Unit.BaseUnit;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class PlayerController implements PlayerObserver {
     private PlayerInfo playerInfo;
     private ArrayList<Observer> observers;
     private ArrayList<BaseUnit> unitList;
 
-    public PlayerController(){
+    public PlayerController() {
         observers = new ArrayList<>();
         playerInfo = new PlayerInfo();
         unitList = new ArrayList<>(4);
@@ -36,7 +36,7 @@ public class PlayerController implements PlayerObserver {
 
     @Override
     public void notifyObservers() {
-        for(Observer o: observers){
+        for (Observer o : observers) {
             o.update(playerInfo);
         }
     }
@@ -47,6 +47,15 @@ public class PlayerController implements PlayerObserver {
 
     public void setPlayerInfo(PlayerInfo playerInfo) {
         this.playerInfo = playerInfo;
+    }
+
+    public void updatePlayerInfo(PlayerInfo playerInfo) {
+        this.playerInfo = playerInfo;
+        notifyObservers();
+    }
+
+    public void updatePlayerInfo(UserInfo userInfo) {
+        playerInfo.setUserInfo(userInfo);
         notifyObservers();
     }
 
@@ -58,46 +67,58 @@ public class PlayerController implements PlayerObserver {
         this.observers = observers;
     }
 
-    public UserInfo signIn(UserInfo userInfo){
+    public UserInfo signIn(UserInfo userInfo) {
         UserDAO userDAO = DatabaseController.getInstance().acquireUserDAO();
         userInfo = userDAO.signInUser(userInfo);
-        DatabaseController.getInstance().releaseDatabase(userDAO);
+        DatabaseController.getInstance().releaseUserDAO(userDAO);
         return userInfo;
     }
 
-    public boolean signUp(UserInfo userInfo){
+    public boolean signUp(PlayerInfo playerInfo) {
         UserDAO userDAO = DatabaseController.getInstance().acquireUserDAO();
-        int result = userDAO.insertUserInfo(userInfo);
-        DatabaseController.getInstance().releaseDatabase(userDAO);
+        int result = userDAO.insertUserInfo(playerInfo.getUserInfo());
+        DatabaseController.getInstance().releaseUserDAO(userDAO);
         return result > 0;
     }
 
-    public LevelInfo retrieveLevelInfo(UserInfo userInfo){
-        UserDAO userDAO = DatabaseController.getInstance().acquireUserDAO();
-        LevelInfo levelInfo = userDAO.retrieveLevelInfo(userInfo);
-        DatabaseController.getInstance().releaseDatabase(userDAO);
+    public boolean updateLevelInfo(LevelInfo levelInfo) {
+        LevelDAO levelDAO = DatabaseController.getInstance().acquireLevelDAO();
+        boolean isSuccess = levelDAO.updateLevelInfo(levelInfo);
+        DatabaseController.getInstance().releaseLevelDAO(levelDAO);
+        if (isSuccess) {
+            UserDAO userDAO = DatabaseController.getInstance().acquireUserDAO();
+            int result = userDAO.updateUserInfo(playerInfo.getUserInfo());
+            DatabaseController.getInstance().releaseUserDAO(userDAO);
+        }
+        return isSuccess;
+    }
+
+    public LevelInfo retrieveLevelInfo(UserInfo userInfo) {
+        LevelDAO levelDAO = DatabaseController.getInstance().acquireLevelDAO();
+        LevelInfo levelInfo = levelDAO.retrieveLevelInfo(userInfo);
+        DatabaseController.getInstance().releaseLevelDAO(levelDAO);
         return levelInfo;
     }
 
-    public void skill(SkillStrategy skillStrategy){
+    public void skill(SkillStrategy skillStrategy) {
         skillStrategy.skill();
     }
 
-    public BaseUnit getUnitByIndex(int index){
+    public BaseUnit getUnitByIndex(int index) {
         BaseUnit unit = null;
-        try{
-            unit =  unitList.get(index);
-        }catch (IndexOutOfBoundsException e){
+        try {
+            unit = unitList.get(index);
+        } catch (IndexOutOfBoundsException e) {
 
         }
         return unit;
     }
 
-    public ArrayList getUnitList(){
+    public ArrayList getUnitList() {
         return unitList;
     }
 
-    public boolean addUnit(BaseUnit newUnit){
+    public boolean addUnit(BaseUnit newUnit) {
         boolean duplicatedFlag = false;
         for (BaseUnit unit : unitList) {
             if (unit.getUnitId().equals(newUnit.getUnitId())) {
@@ -105,13 +126,14 @@ public class PlayerController implements PlayerObserver {
                 break;
             }
         }
-        if(!duplicatedFlag){
+        if (!duplicatedFlag) {
+            System.out.println(newUnit.getUnitId());
             unitList.add(newUnit);
         }
         return duplicatedFlag;
     }
 
-    public void deleteUnit(BaseUnit unit){
+    public void deleteUnit(BaseUnit unit) {
         unitList.remove(unit);
     }
 
